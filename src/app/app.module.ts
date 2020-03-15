@@ -8,13 +8,15 @@ import { LoginBarComponent } from './login-bar/login-bar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input'; 
+import {MatInputModule} from '@angular/material/input';
+import { LoginFormComponent2Component } from './login-form-component2/login-form-component2.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     DescriptionFirstPageComponent,
     LoginBarComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LoginFormComponent2Component
   ],
   imports: [
     BrowserModule,
