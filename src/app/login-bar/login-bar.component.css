@@ -1,0 +1,27 @@
+#logidBar{
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: white;
+    border-bottom: 5px solid green;
+    position: relative;
+}
+
+#logidBar ul {
+    position:absolute;
+    top: 0px;
+    right: 10px;
+    width: 300px;
+    margin: 0px;
+    padding: 0px;
+    height: 80px;
+}
+
+#logidBar ul li{
+    float: left;
+    width: 80px;
+    height: 80px;
+    list-style-type: none;
+    font-size: 18px;
+    line-height: 80px;
+}
