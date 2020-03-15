@@ -1,0 +1,9 @@
+Prima pagina o sa fie pagina de login in care utilizatorii o sa trebuiasca sa isi creeze un cont nou in cazul in care nu au unul sau sa il foloseasca pe cel pe care il au pentru a intra in cont.
+Dupa ce se logheaza fiecare utilizator, o sa fie redirectionat catre o pagina de acasa unde o sa fie afisate informatii despre site.
+Site-ul web poate sa fie accesat de doua categorii de utilizatori: cumparatori si vanzatori.
+Ca si vanzator, utlizatorul poate sa isi posteze produse spre vanzare, sa le modifice preturile, sa puna poze cu produsele , sa stearga anumite produse , sa isi vada stocul de produse existent , sa posteze anumite informatii despre firma.
+Ca si cumparator, utilizatorul poate sa vizualizeze produsele diferitilor vanzatori, poate sa adauge produse in cos, sa le stearga din cos si sa cumpere .
+Utilizatorii:
+- se pot deconecta de pe contul lor.
+- Pot sa isi schimbe parola.
+- Pot sa isi schimbe poza profilului.  
