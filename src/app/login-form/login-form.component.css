@@ -1,18 +1,13 @@
-/*#loginID{
-    background-color: green;
-    width: 300px;
-    height: 200px;
-    position: absolute;
-    right: 100px;
-    top: 150px;
-}
-*/
-#cv{
-    background-color: green;
-    width: 600px;
+#loginForm{
+    background-color: #a73962;
+    width: 620px;
     height: 400px;
     position: absolute;
     right: 100px;
     top: 150px;
+}
 
+.example-button-row button {
+  margin-right: 8px;
+  border-radius: 10px;
 }

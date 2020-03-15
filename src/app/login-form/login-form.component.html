@@ -1,11 +1,9 @@
 <app-description-first-page></app-description-first-page>
 
-<!--<div id="loginID">
-    <p>nume</p>
-    <p>nume</p>
-    <p>nume</p>
-</div> -->
-<div id="cv">
+<div id="loginForm">
+    <div class="example-button-row">
+        <button routerLink="/descriptionFirstPage" mat-mini-fab>X</button>
+    </div>
     <form class="example-form">
         <mat-form-field class="example-full-width">
         <mat-label>Company</mat-label>
@@ -27,26 +25,20 @@
         <mat-form-field class="example-full-width">
             <mat-label>Address</mat-label>
             <textarea matInput placeholder="Ex. s">Str Vasile Parvan</textarea>
-        </mat-form-field>
-        <!--<mat-form-field class="example-full-width">
-            <mat-label>Address 2</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field> -->
-        
+        </mat-form-field>  
     
         <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field class="example-full-width">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="Ex. San Francisco">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput >
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="Ex. California">
+            <mat-label>email</mat-label>
+            <input type="email" matInput placeholder="nume@yahoo.com">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
-            <mat-label>Postal Code</mat-label>
-            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+            <mat-label>Nume utilizator</mat-label>
+            <input matInput>
         </mat-form-field></td>
         </tr></table>
     </form>

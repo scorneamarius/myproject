@@ -5,7 +5,8 @@ import { DescriptionFirstPageComponent } from './description-first-page/descript
 
 const routes: Routes = [
   {path:'loginForm',component: LoginFormComponent},
-  {path:'',component: DescriptionFirstPageComponent}
+  {path:'',component: DescriptionFirstPageComponent},
+  {path:'descriptionFirstPage',component:DescriptionFirstPageComponent}
 ];
 
 @NgModule({
