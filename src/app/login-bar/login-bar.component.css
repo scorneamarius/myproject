@@ -17,7 +17,7 @@
     height: 80px;
 }
 
-#logidBar ul li{
+#logidBar ul a{
     float: left;
     width: 80px;
     height: 80px;
