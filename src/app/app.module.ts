@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { LoginFormComponent2Component } from './login-form-component2/login-form-component2.component'; 
+import { FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import { LoginFormComponent2Component } from './login-form-component2/login-form
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
