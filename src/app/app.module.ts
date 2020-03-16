@@ -11,6 +11,10 @@ import {NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { LoginFormComponent2Component } from './login-form-component2/login-form-component2.component'; 
 import { FormsModule} from '@angular/forms';
+import{ AngularFireModule} from 'angularfire2';
+import { environment } from 'src/environments/environment';
+import{ AngularFireDatabaseModule} from 'angularfire2/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,9 @@ import { FormsModule} from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
 
   ],
   providers: [],
