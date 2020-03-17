@@ -6,16 +6,16 @@
 <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Nume utilizator</mat-label>
-      <input [(ngModel)]="username" name="username" matInput>
+      <input  matInput>
     </mat-form-field>
   
     <mat-form-field class="example-full-width">
         <mat-label>Password</mat-label>
-        <input  [(ngModel)]="passwd" name="passwd" matInput type="password">
+        <input  name="passwd" matInput type="password">
       </mat-form-field>
   </form>
   <div class="example-button-row">
-    <button (click)="afisare()"  mat-mini-fab>Login</button>
+    <button mat-mini-fab>Login</button>
 </div>
   <p>
       Nu ai cont? Apasa pe butonul de jos

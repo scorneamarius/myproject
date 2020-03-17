@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../users';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-login-form-component2',
@@ -6,13 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-form-component2.component.css']
 })
 export class LoginFormComponent2Component implements OnInit {
-  public username="";
-  public passwd="";
-  constructor() { }
+  user:User;
+  constructor(private _loginService:LoginServiceService) { }
+
   ngOnInit(): void {
-  }
-  public afisare()
-  {
-    console.log(this.username+" "+this.passwd);
+    this.user=this._loginService.getUser();
   }
 }

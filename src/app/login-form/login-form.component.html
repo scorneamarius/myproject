@@ -13,7 +13,7 @@
         <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field class="example-full-width">
             <mat-label>First name</mat-label>
-            <input matInput value="Vasile">
+            <input  [(ngModel)]="_loginService.user.username" name="username" matInput value="Vasile">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
             <mat-label>Last Name </mat-label>
@@ -43,7 +43,7 @@
         </tr></table>
     </form>
     <div class="example-button-row">
-        <button mat-mini-fab>Autentificare</button>
+        <button (click)=afis() mat-mini-fab>Autentificare</button>
     </div>
     <p>
         Ai deja cont? Daca da , apasa butonul de mai jos

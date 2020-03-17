@@ -14,6 +14,7 @@ import { FormsModule} from '@angular/forms';
 import{ AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import{ AngularFireDatabaseModule} from 'angularfire2/database';
+import { LoginServiceService } from './login-service.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import{ AngularFireDatabaseModule} from 'angularfire2/database';
     MatInputModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    LoginServiceService
 
   ],
   providers: [],
