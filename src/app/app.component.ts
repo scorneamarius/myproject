@@ -7,7 +7,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public peopleInfo :any[];
+  /*public peopleInfo :any[];*/
   /*public db:AngularFireDatabase;*/
   constructor(public db:AngularFireDatabase)
   {

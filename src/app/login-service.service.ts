@@ -1,19 +1,78 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {User} from './users';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
-  user : User;
-  constructor(public _db:AngularFireDatabase){}
-  
-  public getUser(){
-    return this.user;
-  }
-  getUsername()
-  {
-    return this.user.username;
+  constructor(public _db:AngularFireDatabase){
+    _db.list('people').valueChanges()
+      .subscribe(
+        data => {  
+          this.infoFromDatabase = data;
+        });
   }
 
+  infoFromDatabase:any[];
+
+  username:string;
+  password:string;
+  company:string;
+  address:string;
+  email:string;
+  firstName:string;
+  lastName:string;
+
+  init(){
+      this.username='';
+      this.password='';
+      this.company='';
+      this.address='';
+      this.email='';
+      this.firstName='';
+      this.lastName='';
+  }
+  checkUsernameAlreadyExists()
+  {
+      // ...
+  }
+  
+  verifyUsername():boolean{
+      if (this.username=='') return false;
+      return true;
+  }
+  verifyPassword():boolean{
+      if(this.password=='') return false;
+      return true;
+  }
+  verifyCompany():boolean{
+    if (this.company=='') return false;
+    return true;
+  }
+  verifyAddress():boolean{
+    if(this.address=='') return false;
+    return true;
+  }
+  verifyEmail():boolean{
+    if(this.email=='') return false;
+    return true;
+  }
+  verifyFirstName():boolean{
+    if(this.firstName=='') return false;
+    return true;
+  }
+  verifyLastName():boolean{
+    if(this.lastName=='') return false;
+    return true;
+  }
+  isOk():boolean{
+    if(this.verifyUsername() && this.verifyPassword() && this.verifyLastName() 
+      && this.verifyFirstName() && this.verifyEmail() && this.verifyCompany() && this.verifyAddress())
+        return true;
+    return false;
+  }
+  printDatabaseInfo()
+  {
+    console.log(this.infoFromDatabase);
+  }
 }

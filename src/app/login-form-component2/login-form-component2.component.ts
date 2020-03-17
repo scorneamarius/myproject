@@ -9,7 +9,7 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class LoginFormComponent2Component implements OnInit {
   user:User;
-  constructor(private _loginService:LoginServiceService) { }
+  constructor(public _loginService:LoginServiceService) { }/*public _loginService:LoginServiceService*/
 
   ngOnInit(): void {
     this.user=this._loginService.getUser();
