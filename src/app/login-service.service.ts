@@ -1,19 +1,33 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireDatabase } from 'angularfire2/database';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
   constructor(public _db:AngularFireDatabase){
-    _db.list('people').valueChanges()
+    _db.list<User>('people').valueChanges()
       .subscribe(
         data => {  
           this.infoFromDatabase = data;
         });
   }
 
-  infoFromDatabase:any[];
+  infoFromDatabase:User[];
+  msg()
+  {
+    //this._db.list('people').remove('people1');
+   // this._db.list('people').update('people2',{
+    //  username:'alfre'});
+    this.infoFromDatabase.forEach(element => {
+      console.log(element.displayName);
+      
+      
+    });
+  }
+
+  
 
   username:string;
   password:string;
@@ -22,7 +36,9 @@ export class LoginServiceService {
   email:string;
   firstName:string;
   lastName:string;
-
+  notWorkingAutentification:boolean
+  notWorkingLogin:boolean
+  
   init(){
       this.username='';
       this.password='';
@@ -31,12 +47,31 @@ export class LoginServiceService {
       this.email='';
       this.firstName='';
       this.lastName='';
+      this.notWorkingAutentification=false;
+      this.notWorkingLogin=true;
   }
-  checkUsernameAlreadyExists()
-  {
-      // ...
+  verify():boolean // aici trebuie sa verificam daca utilizatorul
+  {               // indeplineste conditiile pentru a crea un cont nou!
+      return true;
   }
-  
+  verifyLogin():boolean // aici verificam daca in baza de date se afla username-ul
+  {                     // si parola
+    return true;
+  }
+  addToDatabase(){
+    this._db.list('users').push
+    (
+      {
+        displayName:this.username,
+        password:this.password,
+        company:this.company,
+        address:this.address,
+        email:this.email,
+        firstName:this.firstName,
+        lastName:this.lastName
+      }
+      );
+  }
   verifyUsername():boolean{
       if (this.username=='') return false;
       return true;

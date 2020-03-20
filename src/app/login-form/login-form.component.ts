@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../login-service.service';
 import { LoginFormComponent2Component } from '../login-form-component2/login-form-component2.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,24 @@ import { LoginFormComponent2Component } from '../login-form-component2/login-for
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(public _loginService:LoginServiceService) { }
+  constructor(public _loginService:LoginServiceService,private router:Router) { }
   ngOnInit(): void {
+    this._loginService.init();
   }
-  verify()
+
+  
+  nextRoute()
   {
-    this.db.list('people/people3/username').push("randomName");
+   if (this._loginService.verify()==true)
+   {
+      this._loginService.addToDatabase();
+      this.router.navigate(['/loginForm2']);
+   }
+   else
+   {
+    this._loginService.notWorkingAutentification=true;
+   }
+
   }
 
 }

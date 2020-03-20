@@ -13,17 +13,22 @@ import { LoginFormComponent2Component } from './login-form-component2/login-form
 import { FormsModule} from '@angular/forms';
 import{ AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment';
-import{ AngularFireDatabaseModule} from 'angularfire2/database';
+import{ AngularFireDatabaseModule,} from 'angularfire2/database';
 
 import { LoginServiceService } from './login-service.service';
-
+import { AfterLoginComponent } from './after-login/after-login.component';
+import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
+import { UserPageComponent } from './user-page/user-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     DescriptionFirstPageComponent,
     LoginBarComponent,
     LoginFormComponent,
-    LoginFormComponent2Component
+    LoginFormComponent2Component,
+    AfterLoginComponent,
+    NotPageFoundComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,10 @@ import { LoginServiceService } from './login-service.service';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireModule 
+    
+
+ 
   ],
   providers: [LoginServiceService,],
   bootstrap: [AppComponent]
