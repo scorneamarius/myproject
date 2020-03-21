@@ -1,33 +1,43 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase } from 'angularfire2/database';
 import { User } from 'firebase';
-
+//import {User} from './users'
+import {Observable} from 'rxjs'
+import {filter} from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
   constructor(public _db:AngularFireDatabase){
-    _db.list<User>('people').valueChanges()
+    _db.list<User>('users').valueChanges()
       .subscribe(
         data => {  
           this.infoFromDatabase = data;
         });
   }
 
-  infoFromDatabase:User[];
+ public infoFromDatabase:User[];
   msg()
   {
     //this._db.list('people').remove('people1');
    // this._db.list('people').update('people2',{
     //  username:'alfre'});
-    this.infoFromDatabase.forEach(element => {
-      console.log(element.displayName);
-      
-      
-    });
+    //this.infoFromDatabase.forEach(element => {
+     // console.log(element.username);
+   // });
   }
 
-  
+  getUsers(): Observable<User[]> {
+    return this._db.list<User>('users').valueChanges();
+  }
+  getUser($key: string): Observable<User> { 
+    return this._db.object<User>('users/' + $key).valueChanges(); // returneaza userul cu cheia respectiva
+  }
+
+ /* getKeyFromUser($key:string)
+  {
+   return this._db.list<User>('users').valueChanges().pipe(filter(user => user.username==="ceva"));
+  }*/
 
   username:string;
   password:string;
@@ -39,6 +49,8 @@ export class LoginServiceService {
   notWorkingAutentification:boolean
   notWorkingLogin:boolean
   
+
+
   init(){
       this.username='';
       this.password='';
@@ -48,11 +60,11 @@ export class LoginServiceService {
       this.firstName='';
       this.lastName='';
       this.notWorkingAutentification=false;
-      this.notWorkingLogin=true;
+      this.notWorkingLogin=false;
   }
   verify():boolean // aici trebuie sa verificam daca utilizatorul
   {               // indeplineste conditiile pentru a crea un cont nou!
-      return true;
+      return false;
   }
   verifyLogin():boolean // aici verificam daca in baza de date se afla username-ul
   {                     // si parola

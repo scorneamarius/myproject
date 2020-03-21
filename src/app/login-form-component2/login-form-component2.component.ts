@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { LoginServiceService } from '../login-service.service';
 
 @Component({
@@ -9,9 +9,24 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class LoginFormComponent2Component implements OnInit {
 
-  constructor(public _loginService:LoginServiceService) { }/*public _loginService:LoginServiceService*/
+  constructor(public _loginService:LoginServiceService,private router:Router) { }
+
+  nextRoute()
+  {
+   if (this._loginService.verifyLogin()==true)
+   {
+    this.router.navigate(['/loginUserPage',this._loginService.username]);
+   }
+   else
+   {  
+    this._loginService.notWorkingLogin=true;
+    console.log( this._loginService.notWorkingLogin)
+   }
+
+  }
+
 
   ngOnInit(): void {
-    
+    this._loginService.init();
   }
 }

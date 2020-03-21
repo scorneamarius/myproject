@@ -19,6 +19,7 @@ import { LoginServiceService } from './login-service.service';
 import { AfterLoginComponent } from './after-login/after-login.component';
 import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { LoginUserPageComponent } from './login-user-page/login-user-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     LoginFormComponent2Component,
     AfterLoginComponent,
     NotPageFoundComponent,
-    UserPageComponent
+    UserPageComponent,
+    LoginUserPageComponent
   ],
   imports: [
     BrowserModule,

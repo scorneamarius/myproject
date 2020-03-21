@@ -6,7 +6,7 @@
 <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Nume utilizator</mat-label>
-      <input  matInput>
+      <input [(ngModel)]="_loginService.username" name="username" matInput>
     </mat-form-field>
   
     <mat-form-field class="example-full-width">
@@ -15,7 +15,7 @@
       </mat-form-field>
   </form>
   <div class="example-button-row">
-    <button mat-mini-fab>Login</button>
+    <button (click)="nextRoute()" mat-mini-fab>Login</button>
 </div>
   <p>
       Nu ai cont? Apasa pe butonul de jos
@@ -23,4 +23,8 @@
   <div class="example-button-row">
     <button routerLink="/loginForm" mat-mini-fab>aici</button>
 </div>
+
+<p *ngIf="_loginService.notWorkingLogin">
+  Nu ai reusit sa le loghezi!
+</p>
 </div>
