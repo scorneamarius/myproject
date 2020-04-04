@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { DescriptionFirstPageComponent } from './description-first-page/description-first-page.component';
-import { LoginFormComponent2Component } from './login-form-component2/login-form-component2.component';
-import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
-import { LoginUserPageComponent } from './login-user-page/login-user-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { DescriptionFirstPageComponent } from './components/description-first-page/description-first-page.component';
+import { LoginFormComponent2Component } from './components/login-form-component2/login-form-component2.component';
+import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
+import { LoginUserPageComponent } from './components/login-user-page/login-user-page.component';
 
 const routes: Routes = [
   {path:'loginForm',component: LoginFormComponent},

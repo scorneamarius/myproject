@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {User} from './users';
+import {User} from './classes/users';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from '../login-service.service';
+import { LoginServiceService } from '../../services/login-service.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import 'firebase/database';
