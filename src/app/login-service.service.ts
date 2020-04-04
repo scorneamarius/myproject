@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase } from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { map } from 'rxjs/operators';
 import { User } from 'firebase';
 //import {User} from './users'
 import {Observable} from 'rxjs'
 import {filter} from 'rxjs/operators'
+import { timingSafeEqual } from 'crypto';
+import { element } from 'protractor';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,25 +17,36 @@ export class LoginServiceService {
         data => {  
           this.infoFromDatabase = data;
         });
-  }
 
- public infoFromDatabase:User[];
+      }
+      users:User[];
+      public infoFromDatabase:User[];
+
+getCustomers(user:User)
+{
+
+  this.infoFromDatabase.forEach(elem=>console.log(elem));
+  
+}
+ 
+
   msg()
-  {
+  { 
     //this._db.list('people').remove('people1');
    // this._db.list('people').update('people2',{
     //  username:'alfre'});
-    //this.infoFromDatabase.forEach(element => {
-     // console.log(element.username);
-   // });
+    this.infoFromDatabase.forEach(element => {
+      console.log(element);
+    });
   }
 
-  getUsers(): Observable<User[]> {
+  /*getUsers(): Observable<User[]> {
     return this._db.list<User>('users').valueChanges();
   }
-  getUser($key: string): Observable<User> { 
-    return this._db.object<User>('users/' + $key).valueChanges(); // returneaza userul cu cheia respectiva
-  }
+  getUser(key: string): Observable<User> { 
+    return this._db.object<User>('users/' + key).valueChanges(); // returneaza userul cu cheia respectiva
+  }*/
+
 
  /* getKeyFromUser($key:string)
   {
@@ -64,7 +78,7 @@ export class LoginServiceService {
   }
   verify():boolean // aici trebuie sa verificam daca utilizatorul
   {               // indeplineste conditiile pentru a crea un cont nou!
-      return false;
+      return true;
   }
   verifyLogin():boolean // aici verificam daca in baza de date se afla username-ul
   {                     // si parola
@@ -84,6 +98,8 @@ export class LoginServiceService {
       }
       );
   }
+ 
+  
   verifyUsername():boolean{
       if (this.username=='') return false;
       return true;

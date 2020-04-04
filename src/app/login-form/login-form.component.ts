@@ -12,10 +12,12 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
 
   constructor(public _loginService:LoginServiceService,private router:Router) { }
+  
+  
   ngOnInit(): void {
     this._loginService.init();
   }
-
+ 
   
   nextRoute()
   {

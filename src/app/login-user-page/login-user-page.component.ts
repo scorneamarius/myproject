@@ -11,7 +11,7 @@ import 'firebase/database';
 export class LoginUserPageComponent implements OnInit {
 
   items: Observable<any[]>;
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase, public loginService:LoginServiceService) {
     this.items = db.list('/users').valueChanges();
   }
 
