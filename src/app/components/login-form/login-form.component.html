@@ -10,44 +10,43 @@
     <form class="example-form">
         <mat-form-field class="example-full-width">
         <mat-label>Company</mat-label>
-        <input [(ngModel)]="_loginService.user.company" name="company" matInput value="Taraba lu Vasile srl">
+        <input [(ngModel)]="_loginService.company" name="company" matInput value="Taraba lu Vasile srl">
         </mat-form-field>
     
         <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field class="example-full-width">
             <mat-label>First name</mat-label>
-            <input [(ngModel)]="_loginService.user.firstName" name="firstName" matInput value="Vasile">
+            <input [(ngModel)]="_loginService.firstName" name="firstName" matInput value="Vasile">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
             <mat-label>Last Name </mat-label>
-            <input [(ngModel)]="_loginService.user.lastName" name="lastName"matInput value="Gheorghe">
+            <input [(ngModel)]="_loginService.lastName" name="lastName" matInput value="Gheorghe">
         </mat-form-field></td>
         </tr></table>
     
         
         <mat-form-field class="example-full-width">
             <mat-label>Adresa</mat-label>
-            <input [(ngModel)]="_loginService.user.address" name="address" matInput >
+            <input [(ngModel)]="_loginService.address" name="address" matInput >
             </mat-form-field>
     
         <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-form-field class="example-full-width">
             <mat-label>Password</mat-label>
-            <input  [(ngModel)]="_loginService.user.password" name="password" type="password" matInput >
+            <input  [(ngModel)]="_loginService.password" name="password" type="password" matInput >
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
             <mat-label>email</mat-label>
-            <input  [(ngModel)]="_loginService.user.email" name="email" type="email" matInput placeholder="nume@yahoo.com">
+            <input  [(ngModel)]="_loginService.email" name="email" type="email" matInput placeholder="nume@yahoo.com">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
             <mat-label>Nume utilizator</mat-label>
-            <input [(ngModel)]="_loginService.user.username" name="username" matInput>
+            <input [(ngModel)]="_loginService.username" name="username" matInput>
         </mat-form-field></td>
         </tr></table>
     </form>
     <div class="example-button-row">
-        <!-- <button (click)="nextRoute()"  mat-mini-fab>Autentificare</button> -->
-        <button (click)=_loginService.msg()>buton</button>
+        <button (click)="nextRoute()"  mat-mini-fab>Autentificare</button>
     </div>
     <p>
         Ai deja cont? Daca da , apasa butonul de mai jos
