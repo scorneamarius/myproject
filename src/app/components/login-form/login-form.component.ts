@@ -15,13 +15,13 @@ export class LoginFormComponent implements OnInit {
   
   
   ngOnInit(): void {
-    this._loginService.init();
+    this._loginService.user.init();
   }
  
   
   nextRoute()
   {
-   if (this._loginService.verify()==true)
+   if (this._loginService.user.verify()==true)
    {
       this._loginService.addToDatabase();
       this.router.navigate(['/loginForm2']);

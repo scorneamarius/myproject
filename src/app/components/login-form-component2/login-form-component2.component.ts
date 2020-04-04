@@ -13,9 +13,9 @@ export class LoginFormComponent2Component implements OnInit {
 
   nextRoute()
   {
-   if (this._loginService.verifyLogin()==true)
+   if (this._loginService.user.verifyLogin()==true)
    {
-    this.router.navigate(['/loginUserPage',this._loginService.username]);
+    this.router.navigate(['/loginUserPage',this._loginService.user.username]);
    }
    else
    {  
@@ -27,6 +27,6 @@ export class LoginFormComponent2Component implements OnInit {
 
 
   ngOnInit(): void {
-    this._loginService.init();
+    this._loginService.user.init();
   }
 }
