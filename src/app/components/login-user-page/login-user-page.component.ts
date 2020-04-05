@@ -16,7 +16,7 @@ export class LoginUserPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.loginService.current_username+" "+this.loginService.current_password);
+    console.log(this.loginService.loginMode);
   }
 
 }

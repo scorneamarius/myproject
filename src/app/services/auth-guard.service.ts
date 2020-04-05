@@ -10,7 +10,9 @@ export class AuthGuard implements CanActivate{
         {
              if(this.loginService.loginMode==true)
              {
+                 this.loginService.loginMode=false;
                  return true;
+                 
              }
              else
              {

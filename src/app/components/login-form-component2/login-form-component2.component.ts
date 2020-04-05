@@ -26,6 +26,6 @@ export class LoginFormComponent2Component implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this._loginService.current_username);
+    console.log(this._loginService.loginMode);
   }
 }
