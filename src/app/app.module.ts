@@ -20,6 +20,7 @@ import { AfterLoginComponent } from './components/after-login/after-login.compon
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { LoginUserPageComponent } from './components/login-user-page/login-user-page.component';
+import { AuthGuard } from './services/auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { LoginUserPageComponent } from './components/login-user-page/login-user-
 
  
   ],
-  providers: [LoginServiceService,],
+  providers: [LoginServiceService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

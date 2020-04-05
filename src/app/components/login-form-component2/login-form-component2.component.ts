@@ -13,7 +13,7 @@ export class LoginFormComponent2Component implements OnInit {
 
   nextRoute()
   {
-    if (this._loginService.isAbleCurrentUserToLogin())
+    if (this._loginService.isCurrentUserAbleToLogin())
     {
       this.router.navigate(['/loginUserPage',this._loginService.current_username]); 
       this._loginService.notWorkingLogin=false;
@@ -26,6 +26,6 @@ export class LoginFormComponent2Component implements OnInit {
 
 
   ngOnInit(): void {
-    
+    console.log(this._loginService.current_username);
   }
 }

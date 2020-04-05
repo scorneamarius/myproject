@@ -5,13 +5,14 @@ import { DescriptionFirstPageComponent } from './components/description-first-pa
 import { LoginFormComponent2Component } from './components/login-form-component2/login-form-component2.component';
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
 import { LoginUserPageComponent } from './components/login-user-page/login-user-page.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   {path:'loginForm',component: LoginFormComponent},
   {path:'',component: DescriptionFirstPageComponent},
   {path:'descriptionFirstPage',component:DescriptionFirstPageComponent},
   {path:'loginForm2',component:LoginFormComponent2Component},
-  {path:'loginUserPage/:username',component:LoginUserPageComponent},
+  {path:'loginUserPage/:username',canActivate:[AuthGuard],component:LoginUserPageComponent},
   {path:'**',component:NotPageFoundComponent}
 ];
 

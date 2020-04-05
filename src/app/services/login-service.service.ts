@@ -36,6 +36,7 @@ export class LoginServiceService {
       // the next variables are used for current user that is trying to connect
       current_username="";
       current_password="";
+      loginMode=false; // starea userului , daca e sau nu logat
       // the next functions are used to check if the current user is able to login
       //------------------------------------------------------------------------
       checkIfTheCurrentUsernameIsAbleToLogin():boolean
@@ -78,18 +79,18 @@ export class LoginServiceService {
         }
         return (ok==1);
       }
-      isAbleCurrentUserToLogin():boolean
+      isCurrentUserAbleToLogin():boolean
       {
         if(
           this.checkIfTheCurrentPasswordIsAbleToLogin()==true &&
           this.checkIfTheCurrentUsernameIsAbleToLogin()==true
         )
         {
+          this.loginMode=true;
            return true;
         }
         return false;
       }
-      // --------------------------------------------
       printDatabaseInfo()
       {
         console.log(this.infoFromDatabase);
