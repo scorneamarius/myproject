@@ -33,11 +33,67 @@ export class LoginServiceService {
       firstName="";
       lastName="";
 
+      // the next variables are used for current user that is trying to connect
+      current_username="";
+      current_password="";
+      // the next functions are used to check if the current user is able to login
+      //------------------------------------------------------------------------
+      checkIfTheCurrentUsernameIsAbleToLogin():boolean
+      {
+        let ok=0;
+        if (this.current_username=="")
+        {
+          return false; 
+        }
+        else
+        {
+          this.infoFromDatabase.forEach(
+            user=>{
+              if(user.username==this.current_username)
+              {
+                ok=1;
+              }
+            }
+          )
+        }
+        return (ok==1);
+      }
+      checkIfTheCurrentPasswordIsAbleToLogin():boolean
+      {
+        let ok=0;
+        if (this.current_password=="")
+        {
+          return false; 
+        }
+        else
+        {
+          this.infoFromDatabase.forEach(
+            user=>{
+              if(user.password==this.current_password)
+              {
+                ok=1;
+              }
+            }
+          )
+        }
+        return (ok==1);
+      }
+      isAbleCurrentUserToLogin():boolean
+      {
+        if(
+          this.checkIfTheCurrentPasswordIsAbleToLogin()==true &&
+          this.checkIfTheCurrentUsernameIsAbleToLogin()==true
+        )
+        {
+           return true;
+        }
+        return false;
+      }
+      // --------------------------------------------
       printDatabaseInfo()
       {
         console.log(this.infoFromDatabase);
       }
-  
       checkUsername():boolean
       { let ok=0;
         this.infoFromDatabase.forEach(element => {

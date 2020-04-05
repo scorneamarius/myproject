@@ -6,12 +6,12 @@
 <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Nume utilizator</mat-label>
-      <input [(ngModel)]="_loginService.username" name="username" matInput>
+      <input  autocomplete="off" [(ngModel)]="_loginService.current_username" name="username" matInput>
     </mat-form-field>
   
     <mat-form-field class="example-full-width">
         <mat-label>Password</mat-label>
-        <input  [(ngModel)]="_loginService.password" name="password" matInput type="password">
+        <input autocomplete="off"  [(ngModel)]="_loginService.current_password" name="password" matInput type="password">
       </mat-form-field>
   </form>
   <div class="example-button-row">
