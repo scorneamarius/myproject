@@ -12,7 +12,8 @@ const routes: Routes = [
   {path:'',component: DescriptionFirstPageComponent},
   {path:'descriptionFirstPage',component:DescriptionFirstPageComponent},
   {path:'loginForm2',component:LoginFormComponent2Component},
-  {path:'loginUserPage/:username',canActivate:[AuthGuard],component:LoginUserPageComponent},
+  {path:'loginUserPage/:username',canActivate:[AuthGuard],/*canActivateChild:[AuthGuard],*/component:LoginUserPageComponent,
+  children:[{path:':ceva',component:NotPageFoundComponent}]},
   {path:'**',component:NotPageFoundComponent}
 ];
 

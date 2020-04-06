@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate{
         {
              if(this.loginService.loginMode==true)
              {
-                 this.loginService.loginMode=false;
+                this.loginService.loginMode=false;
                  return true;
                  
              }
@@ -19,4 +19,9 @@ export class AuthGuard implements CanActivate{
                  this.router.navigate(['/descriptionFirstPage'])
              }
         }
+        canActivateChild(route:ActivatedRouteSnapshot,
+            state:RouterStateSnapshot):Observable<boolean> | Promise <boolean> | boolean
+            {
+                return true;
+            }
 }
