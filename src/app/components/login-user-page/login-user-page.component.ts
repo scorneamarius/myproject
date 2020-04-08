@@ -3,6 +3,7 @@ import { LoginServiceService } from '../../services/login-service.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import 'firebase/database';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-login-user-page',
   templateUrl: './login-user-page.component.html',
@@ -10,13 +11,14 @@ import 'firebase/database';
 })
 export class LoginUserPageComponent implements OnInit {
 
-  items: Observable<any[]>;
-  constructor(db: AngularFireDatabase, public loginService:LoginServiceService) {
-    this.items = db.list('/users').valueChanges();
+  users: Observable<any[]>;
+  private cookieValue:string;
+  constructor(cookieService:CookieService,db: AngularFireDatabase) {
+    this.users = db.list('users').valueChanges();
   }
 
   ngOnInit(): void {
-    console.log(this.loginService.loginMode);
+    
   }
 
 }

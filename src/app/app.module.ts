@@ -21,6 +21,10 @@ import { NotPageFoundComponent } from './components/not-page-found/not-page-foun
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { LoginUserPageComponent } from './components/login-user-page/login-user-page.component';
 import { AuthGuard } from './services/auth-guard.service';
+import {CookieService} from 'ngx-cookie-service';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UsersComponent } from './components/users/users.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,8 @@ import { AuthGuard } from './services/auth-guard.service';
     NotPageFoundComponent,
     UserPageComponent,
     LoginUserPageComponent,
+    UserDetailsComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,7 @@ import { AuthGuard } from './services/auth-guard.service';
 
  
   ],
-  providers: [LoginServiceService,AuthGuard],
+  providers: [LoginServiceService,AuthGuard,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

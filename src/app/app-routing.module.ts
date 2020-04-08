@@ -6,15 +6,17 @@ import { LoginFormComponent2Component } from './components/login-form-component2
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
 import { LoginUserPageComponent } from './components/login-user-page/login-user-page.component';
 import { AuthGuard } from './services/auth-guard.service';
+import {UsersComponent} from './components/users/users.component';
+import {UserDetailsComponent} from './components/user-details/user-details.component'
 
 const routes: Routes = [
+  {path:'users',component:UsersComponent},
   {path:'loginForm',component: LoginFormComponent},
   {path:'',component: DescriptionFirstPageComponent},
   {path:'descriptionFirstPage',component:DescriptionFirstPageComponent},
   {path:'loginForm2',component:LoginFormComponent2Component},
-  {path:'loginUserPage/:username',canActivate:[AuthGuard],/*canActivateChild:[AuthGuard],*/component:LoginUserPageComponent,
-  children:[{path:':ceva',component:NotPageFoundComponent}]},
-  {path:'**',component:NotPageFoundComponent}
+  {path:'loginUserPage',canActivate:[AuthGuard],component:LoginUserPageComponent,children:[{path:':ceva',component:NotPageFoundComponent}]},
+  {path:'**',component:NotPageFoundComponent} 
 ];
 
 @NgModule({
