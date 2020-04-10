@@ -1,0 +1,13 @@
+#loginForm{
+    background-color: #a73962;
+    width: 620px;
+    height: 430px;
+    position: absolute;
+    right: 100px;
+    top: 150px;
+}
+
+.example-button-row button {
+  margin-right: 8px;
+  border-radius: 10px;
+}

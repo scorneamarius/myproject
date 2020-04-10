@@ -1,0 +1,19 @@
+.aliniereDivuri {
+    float:left ;
+    width:calc(50% - 10px);
+    border:1px black
+}
+
+.aliniereDivuri img{
+    width: 90%; /*  ox */
+    height:50%;
+    margin: 50px 30px;
+    border-radius: 30px;
+    
+} 
+.aliniereDivuri p{
+    font-size:13px;
+}
+p{
+    text-indent: 30px;
+}
