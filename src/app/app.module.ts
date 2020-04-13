@@ -14,7 +14,7 @@ import { FormsModule} from '@angular/forms';
 import{ AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import{ AngularFireDatabaseModule} from 'angularfire2/database';
-import {User} from './classes/users'
+import {User} from './classes/users';
 import { LoginServiceService } from './services/login-service.service';
 import { AfterLoginComponent } from './components/after-login/after-login.component';
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
@@ -39,7 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginUserPageComponent,
     UserDetailsComponent,
     UsersComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

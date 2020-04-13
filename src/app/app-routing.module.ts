@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'descriptionFirstPage',component:DescriptionFirstPageComponent},
   {path:'loginForm2',component:LoginFormComponent2Component},
   {path:'loginUserPage',canActivate:[AuthGuard],component:LoginUserPageComponent,children:[{path:':ceva',component:NotPageFoundComponent}]},
-  {path:'**',component:NotPageFoundComponent} 
+  {path:'**',component:NotPageFoundComponent}
 ];
 
 @NgModule({
