@@ -9,6 +9,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import {UsersComponent} from './components/users/users.component';
 import {UserDetailsComponent} from './components/user-details/user-details.component';
 import {FooterComponent} from './components/footer/footer.component';
+import { TcComponent } from './components/tc/tc.component';
 
 const routes: Routes = [
   {path:'users',component:UsersComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'descriptionFirstPage',component:DescriptionFirstPageComponent},
   {path:'loginForm2',component:LoginFormComponent2Component},
   {path:'loginUserPage',canActivate:[AuthGuard],component:LoginUserPageComponent,children:[{path:':ceva',component:NotPageFoundComponent}]},
+  {path:'tc', component:TcComponent},
   {path:'**',component:NotPageFoundComponent}
 ];
 

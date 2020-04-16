@@ -25,6 +25,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersComponent } from './components/users/users.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TcComponent } from './components/tc/tc.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginUserPageComponent,
     UserDetailsComponent,
     UsersComponent,
-    FooterComponent
+    FooterComponent,
+    TcComponent
   ],
   imports: [
     BrowserModule,
