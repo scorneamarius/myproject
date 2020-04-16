@@ -8,14 +8,21 @@ import { LoginUserPageComponent } from './components/login-user-page/login-user-
 import { AuthGuard } from './services/auth-guard.service';
 import {UsersComponent} from './components/users/users.component';
 import {UserDetailsComponent} from './components/user-details/user-details.component'
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { StockComponent } from './components/stock/stock.component';
+import { BuyComponent } from './components/buy/buy.component';
 
 const routes: Routes = [
+  {path:'stock',component:StockComponent},
+  {path:'userProfile',/*canActivate:[AuthGuard],*/component:UserProfileComponent,children:[
+    {path:'stock',component:StockComponent},
+    {path:'buy',component:BuyComponent}]},
   {path:'users',component:UsersComponent},
   {path:'loginForm',component: LoginFormComponent},
   {path:'',component: DescriptionFirstPageComponent},
   {path:'descriptionFirstPage',component:DescriptionFirstPageComponent},
   {path:'loginForm2',component:LoginFormComponent2Component},
-  {path:'loginUserPage',canActivate:[AuthGuard],component:LoginUserPageComponent,children:[{path:':ceva',component:NotPageFoundComponent}]},
+  {path:'loginUserPage',component:LoginUserPageComponent},
   {path:'**',component:NotPageFoundComponent} 
 ];
 
