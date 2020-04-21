@@ -10,6 +10,7 @@ import {UsersComponent} from './components/users/users.component';
 import {UserDetailsComponent} from './components/user-details/user-details.component';
 import {FooterComponent} from './components/footer/footer.component';
 import { TcComponent } from './components/tc/tc.component';
+import { DeliveryOptionsComponent} from './components/delivery-options/delivery-options.component';
 
 const routes: Routes = [
   {path:'users',component:UsersComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'loginForm2',component:LoginFormComponent2Component},
   {path:'loginUserPage',canActivate:[AuthGuard],component:LoginUserPageComponent,children:[{path:':ceva',component:NotPageFoundComponent}]},
   {path:'tc', component:TcComponent},
+  {path:'deliveryOptions', component:DeliveryOptionsComponent},
   {path:'**',component:NotPageFoundComponent}
 ];
 

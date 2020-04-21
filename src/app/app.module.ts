@@ -26,6 +26,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UsersComponent } from './components/users/users.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TcComponent } from './components/tc/tc.component';
+import { DeliveryOptionsComponent } from './components/delivery-options/delivery-options.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TcComponent } from './components/tc/tc.component';
     UserDetailsComponent,
     UsersComponent,
     FooterComponent,
-    TcComponent
+    TcComponent,
+    DeliveryOptionsComponent
   ],
   imports: [
     BrowserModule,
