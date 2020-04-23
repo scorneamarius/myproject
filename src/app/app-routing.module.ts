@@ -11,6 +11,7 @@ import {UserDetailsComponent} from './components/user-details/user-details.compo
 import {FooterComponent} from './components/footer/footer.component';
 import { TcComponent } from './components/tc/tc.component';
 import { DeliveryOptionsComponent} from './components/delivery-options/delivery-options.component';
+import { FrequentQuestionsComponent} from './components/frequent-questions/frequent-questions.component';
 
 const routes: Routes = [
   {path:'users',component:UsersComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'loginUserPage',canActivate:[AuthGuard],component:LoginUserPageComponent,children:[{path:':ceva',component:NotPageFoundComponent}]},
   {path:'tc', component:TcComponent},
   {path:'deliveryOptions', component:DeliveryOptionsComponent},
+  {path: 'frequentQuestions', component:FrequentQuestionsComponent},
   {path:'**',component:NotPageFoundComponent}
 ];
 
