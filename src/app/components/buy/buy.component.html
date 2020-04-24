@@ -25,4 +25,5 @@
         </div>
      
     </div>
+    <app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>
  </div>

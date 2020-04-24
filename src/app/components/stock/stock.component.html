@@ -1,10 +1,14 @@
-<div *ngFor="let x of fruitsAndVegetables">
-  {{x.name+":"+x.amount +" , pret :"+x.price}} <br /> 
-  Update la stoc
-  <input #inputStock>
-  <button (click)=updateStock(x.name,inputStock.value)>Update</button><br /> 
-  Update la pret
-  <input #inputPrice>
-  <button (click)="updatePrice(x.name,inputPrice.value)">Update</button>
-  <hr/>
+<div>
+  <div *ngFor="let x of fruitsAndVegetables">
+    {{x.name+":"+x.amount +" , pret :"+x.price}} <br /> 
+    Update la stoc
+    <input #inputStock>
+    <button (click)=updateStock(x.name,inputStock.value)>Update</button><br /> 
+    Update la pret
+    <input #inputPrice>
+    <button (click)="updatePrice(x.name,inputPrice.value)">Update</button>
+    <hr/> 
+  </div>
+  <app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>
+ 
 </div>

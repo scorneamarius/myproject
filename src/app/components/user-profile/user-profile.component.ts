@@ -9,7 +9,13 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private cookieService:CookieService) { }
   username=this.cookieService.get('usernameCookie');
+  printShoppingBasket=false;
+  invert(){
 
+    this.printShoppingBasket=!this.printShoppingBasket;
+  }
+ 
+  
   ngOnInit(): void {
   }
 

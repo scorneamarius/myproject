@@ -24,8 +24,12 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UsersComponent } from './components/users/users.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { StockComponent } from './components/stock/stock.component';
-import { DatabaseService } from './services/database.service';
 import { BuyComponent } from './components/buy/buy.component';
+import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
+import { ShoppingBasketService } from './services/shopping-basket.service';
+import { AlertComponent } from './components/alert/alert.component';
+import { OrdersComponent } from './components/orders/orders.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +45,10 @@ import { BuyComponent } from './components/buy/buy.component';
     UserProfileComponent,
     StockComponent,
     BuyComponent,
+    ShoppingBasketComponent,
+    AlertComponent,
+    OrdersComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,7 @@ import { BuyComponent } from './components/buy/buy.component';
     AngularFireDatabaseModule,
     AngularFireModule , 
   ],
-  providers: [LoginServiceService,AuthGuard,CookieService,DatabaseService],
+  providers: [LoginServiceService,AuthGuard,CookieService,ShoppingBasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

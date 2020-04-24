@@ -1,6 +1,5 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { DatabaseService } from '../../services/database.service';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
@@ -46,45 +45,71 @@ export class StockComponent implements OnInit {
   username:string;
   key
   fruitsAndVegetables=[];
+  error=false;
+  errorMessage="Nu ati introdus date corecte in campul stoc sau pret!";
+  
+  onHandleError(){
+    this.error=false;
+  }
+
   updateStock(nume,cantitate)
   {
-    if(nume=='mere')
-      this.db.list<User>('users').update(this.key,{mere:cantitate});
-    else
-      if(nume=='pere')
-       this.db.list<User>('users').update(this.key,{pere:cantitate});
-      else
-        if(nume=='banane')
-          this.db.list<User>('users').update(this.key,{banane:cantitate});
+    if(cantitate>=0 && cantitate <=9999999999999999 && cantitate.length!=0 && cantitate.indexOf(' ')==-1 && cantitate.indexOf('+')==-1)
+    {
+        this.error=false;
+        if(nume=='mere')
+           this.db.list<User>('users').update(this.key,{mere:cantitate});
         else
-          if(nume=='portocale')
-            this.db.list<User>('users').update(this.key,{portocale:cantitate});
+          if(nume=='pere')
+          this.db.list<User>('users').update(this.key,{pere:cantitate});
           else
-            if(nume=='morcovi')
-              this.db.list<User>('users').update(this.key,{morcovi:cantitate});
+            if(nume=='banane')
+              this.db.list<User>('users').update(this.key,{banane:cantitate});
             else
-              if(nume=='cartofi')
-                this.db.list<User>('users').update(this.key,{cartofi:cantitate});
+              if(nume=='portocale')
+                this.db.list<User>('users').update(this.key,{portocale:cantitate});
+              else
+                if(nume=='morcovi')
+                  this.db.list<User>('users').update(this.key,{morcovi:cantitate});
+                else
+                  if(nume=='cartofi')
+                    this.db.list<User>('users').update(this.key,{cartofi:cantitate});
+    }
+    else
+    {
+      this.error=true;
+      console.log(this.error);
+    }
+
   }
+
   updatePrice(nume,pret)
   {
-    if(nume=='mere')
-      this.db.list<User>('users').update(this.key,{pretMere:pret});
-    else
-      if(nume=='pere')
-       this.db.list<User>('users').update(this.key,{pretPere:pret});
+    
+    if(pret>=0 && pret <=999999999999999999999 && pret.length!=0 && pret.indexOf(' ')==-1 && pret.indexOf('+')==-1)
+    {
+      this.error=false;
+      if(nume=='mere')
+        this.db.list<User>('users').update(this.key,{pretMere:pret});
       else
-        if(nume=='banane')
-          this.db.list<User>('users').update(this.key,{pretBanane:pret});
+        if(nume=='pere')
+          this.db.list<User>('users').update(this.key,{pretPere:pret});
         else
-          if(nume=='portocale')
-            this.db.list<User>('users').update(this.key,{pretPortocale:pret});
+          if(nume=='banane')
+            this.db.list<User>('users').update(this.key,{pretBanane:pret});
           else
-            if(nume=='morcovi')
-              this.db.list<User>('users').update(this.key,{pretMorcovi:pret});
+            if(nume=='portocale')
+              this.db.list<User>('users').update(this.key,{pretPortocale:pret});
             else
-              if(nume=='cartofi')
-                this.db.list<User>('users').update(this.key,{pretCartofi:pret});
+              if(nume=='morcovi')
+                this.db.list<User>('users').update(this.key,{pretMorcovi:pret});
+              else
+                if(nume=='cartofi')
+                  this.db.list<User>('users').update(this.key,{pretCartofi:pret});
+    }
+    else{
+      this.error=true;
+    }
 
   }
 ngOnInit(){
