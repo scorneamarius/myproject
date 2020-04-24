@@ -1,0 +1,12 @@
+<h2>Comenzile dvs:</h2>
+<div  *ngFor="let user of orders | async">
+    <div *ngIf=checkUser(user.vanzator)>
+        <div>{{'Cumparator:'+user.cumparator}}</div>
+        <div>{{'Produs:'+user.produs}}</div>
+        <div>{{'Cantitate:'+user.cantitate}}</div>
+        <div>{{'Pret:'+user.pret}}</div>
+        <div>{{'Adresa:'+user.address}}</div>
+        <div>{{'Data:'+user.time}}</div>
+        <hr/>
+    </div>
+</div>

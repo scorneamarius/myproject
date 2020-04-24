@@ -1,0 +1,19 @@
+<div id="borderCos" >
+     <div  *ngFor="let user of usersShoppingBasket | async">
+        <div *ngIf=checkUser(user.username)>
+            <p>{{user.usernameVendor}}</p>
+            <p>{{user.product}}</p>
+            <div>
+                <p>{{"cantitate:"+user.amount}}</p>
+                <button (click)="add(user.key,user.amount,user.usernameVendor,user.product)">+</button>
+                <button (click)="decrese(user.key,user.amount)">-</button>
+                <button (click)="delete(user.key)">delete</button>
+            </div>
+            <p>{{"pret:"+user.price*user.amount}}</p>
+            <hr/>
+        </div>
+    </div>       
+    {{'Pret total : '+totalPrice}} <hr/>
+    <button (click)="comanda()">Comanda!</button>
+</div>
+   <app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>

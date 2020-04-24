@@ -16,10 +16,12 @@ export class LoginFormComponent2Component implements OnInit {
   {
     if (this._loginService.isCurrentUserAbleToLogin())
     {
-      this.router.navigate(['/loginUserPage']); 
+      this.router.navigate(['/userProfile']); 
       this._loginService.notWorkingLogin=false;
       this.cookieService.set('usernameCookie',this._loginService.current_username);
       this.cookieService.set('passwordCookie',this._loginService.current_password);
+      this.cookieService.set('keyCookie',this._loginService.getKey(this._loginService.current_username));
+      console.log(this.cookieService.get('usernameCookie')+" "+this.cookieService.get('keyCookie'));
     }
     else
     {

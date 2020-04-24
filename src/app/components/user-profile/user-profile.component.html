@@ -1,0 +1,32 @@
+<div class="jumbotron text-center" style="margin-bottom: 0px;">
+    <h1>Welcome {{username}}</h1>
+    <p>This is our website that allows you to make shopping or to sell your products!</p>
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand">
+      <img src="assets/images/icon.png" alt="logo" style="width:40px;">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink='stock'>Stocul meu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='buy'>Cumpar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='orders'>Comenzile mele</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="cosText" (mouseenter)="invert()">Cos cumparaturi</a>
+      </li>
+    </ul>
+</nav>
+<div *ngIf="printShoppingBasket">
+  <button id='closeCos' (click)="invert()"> X </button>
+  <app-shopping-basket ></app-shopping-basket></div>
+<router-outlet></router-outlet>
+  
