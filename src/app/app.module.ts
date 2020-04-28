@@ -53,8 +53,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     FooterComponent,
     TcComponent,
     DeliveryOptionsComponent,
-    FrequentQuestionsComponent
-
+    FrequentQuestionsComponent,
     UserProfileComponent,
     StockComponent,
     BuyComponent,
