@@ -14,7 +14,7 @@ import { FormsModule} from '@angular/forms';
 import{ AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import{ AngularFireDatabaseModule} from 'angularfire2/database';
-import {User} from './classes/users'
+import {User} from './classes/users';
 import { LoginServiceService } from './services/login-service.service';
 import { AfterLoginComponent } from './components/after-login/after-login.component';
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
@@ -24,6 +24,10 @@ import { AuthGuard } from './services/auth-guard.service';
 import {CookieService} from 'ngx-cookie-service';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersComponent } from './components/users/users.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { TcComponent } from './components/tc/tc.component';
+import { DeliveryOptionsComponent } from './components/delivery-options/delivery-options.component';
+import { FrequentQuestionsComponent } from './components/frequent-questions/frequent-questions.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,10 @@ import { UsersComponent } from './components/users/users.component';
     LoginUserPageComponent,
     UserDetailsComponent,
     UsersComponent,
+    FooterComponent,
+    TcComponent,
+    DeliveryOptionsComponent,
+    FrequentQuestionsComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,13 @@
 .aliniereDivuri img{
     width: 90%; /*  ox */
     height:50%;
-    margin: 10px 30px;
+    margin: 50px 30px;
     border-radius: 30px;
+    
 } 
+.aliniereDivuri p{
+    font-size:13px;
+}
+p{
+    text-indent: 30px;
+}
