@@ -72,7 +72,7 @@ export class ShoppingBasketComponent implements OnInit {
           {
             if(cantitateParseInt+1<= parseInt(user.pere))
             {
-              this.error=true;
+              this.error=false;
               this.db.list('shoppingBasket').update(key,{amount:cantitateParseInt+1});
             }
             else
@@ -191,16 +191,17 @@ export class ShoppingBasketComponent implements OnInit {
                 {
                   if(produs=='portocale')
                   {
-                    let cantitatePortocale=parseInt(user.mere);
+                    let cantitatePortocale=parseInt(user.portocale);
                     cantitatePortocale=cantitatePortocale-cantitate;
                     let keyParseString=(user.key).substring(0,(user.key).length);
                     this.db.list('users').update(keyParseString,{portocale:cantitatePortocale});
+                    console.log()
                   }
                   else
                   {
                     if(produs=='morcovi')
                     {
-                      let cantitateMorcovi=parseInt(user.mere);
+                      let cantitateMorcovi=parseInt(user.morcovi);
                       cantitateMorcovi=cantitateMorcovi-cantitate;
                       let keyParseString=(user.key).substring(0,(user.key).length);
                       this.db.list('users').update(keyParseString,{morcovi:cantitateMorcovi});
@@ -209,7 +210,7 @@ export class ShoppingBasketComponent implements OnInit {
                     {
                       if(produs=='cartofi')
                       {
-                        let cantitateCartofi=parseInt(user.mere);
+                        let cantitateCartofi=parseInt(user.cartofi);
                         cantitateCartofi=cantitateCartofi-cantitate;
                         let keyParseString=(user.key).substring(0,(user.key).length);
                         this.db.list('users').update(keyParseString,{cartofi:cantitateCartofi});
@@ -220,12 +221,14 @@ export class ShoppingBasketComponent implements OnInit {
               }
             }
           }
-        });
+        });this.deleteKeys(keys);
       }
     });
-    keys.forEach(key=>{
-      this.delete(key);
-    });
+    // keys.forEach(key=>{
+    //   // console.log(key);
+    //   this.delete(key);
+    // });
+    this.deleteKeys(keys);
   }
   decrese(key,cantitate){
     let cantitateParseInt=parseInt(cantitate);
@@ -235,7 +238,15 @@ export class ShoppingBasketComponent implements OnInit {
     }
         
   }
+  deleteKeys(keys)
+  {
+    keys.forEach(element => {
+      console.log(element);
+      this.db.list('shoppingBasket').remove(element);
+    });
+  }
   delete(key){
+    console.log(key)
     this.db.list('shoppingBasket').remove(key);
   }
   ngOnInit(): void {
