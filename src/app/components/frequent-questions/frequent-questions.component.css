@@ -1,0 +1,18 @@
+.navbar-custom{
+    background-color: black
+}
+.styleButton{
+    background-color:black;
+    border: none;
+    color: white;
+}
+h2{
+    text-align: center;
+}
+.textPadding{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+h5{
+    text-align: center;
+}

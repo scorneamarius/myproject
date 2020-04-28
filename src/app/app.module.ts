@@ -12,8 +12,8 @@ import { LoginFormComponent2Component } from './components/login-form-component2
 import { FormsModule} from '@angular/forms';
 import { AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment';
-import { AngularFireDatabaseModule} from 'angularfire2/database';
-import { User} from './classes/users'
+import{ AngularFireDatabaseModule} from 'angularfire2/database';
+import {User} from './classes/users';
 import { LoginServiceService } from './services/login-service.service';
 import { AfterLoginComponent } from './components/after-login/after-login.component';
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
@@ -22,6 +22,12 @@ import { AuthGuard } from './services/auth-guard.service';
 import {CookieService} from 'ngx-cookie-service';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersComponent } from './components/users/users.component';
+
+import { FooterComponent } from './components/footer/footer.component';
+import { TcComponent } from './components/tc/tc.component';
+import { DeliveryOptionsComponent } from './components/delivery-options/delivery-options.component';
+import { FrequentQuestionsComponent } from './components/frequent-questions/frequent-questions.component';
+
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { StockComponent } from './components/stock/stock.component';
 import { BuyComponent } from './components/buy/buy.component';
@@ -29,6 +35,7 @@ import { ShoppingBasketComponent } from './components/shopping-basket/shopping-b
 import { ShoppingBasketService } from './services/shopping-basket.service';
 import { AlertComponent } from './components/alert/alert.component';
 import { OrdersComponent } from './components/orders/orders.component';
+
 
 @NgModule({
   declarations: [
@@ -42,12 +49,19 @@ import { OrdersComponent } from './components/orders/orders.component';
     LoginUserPageComponent,
     UserDetailsComponent,
     UsersComponent,
+
+    FooterComponent,
+    TcComponent,
+    DeliveryOptionsComponent,
+    FrequentQuestionsComponent
+
     UserProfileComponent,
     StockComponent,
     BuyComponent,
     ShoppingBasketComponent,
     AlertComponent,
     OrdersComponent,
+
 
   ],
   imports: [
