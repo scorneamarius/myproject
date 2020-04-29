@@ -1,11 +1,9 @@
-<app-description-first-page></app-description-first-page>
-
 <div id="loginForm">
     <p *ngIf="_loginService.notWorkingAutentification">
         Autentificarea nu a reusit!
     </p>
     <div class="example-button-row">
-        <button routerLink="/descriptionFirstPage" mat-mini-fab>X</button>
+        <button (click)="onCloseLoginFormComponent()" mat-mini-fab>X</button>
     </div>
     <form class="example-form">
         <mat-form-field class="example-full-width">
@@ -46,12 +44,12 @@
         </tr></table>
     </form>
     <div class="example-button-row">
-        <button (click)="nextRoute()"  mat-mini-fab>Autentificare</button>
+        <button (click)="nextRoute()"mat-mini-fab>Autentificare</button>
     </div>
     <p>
         Ai deja cont? Daca da , apasa butonul de mai jos
     </p>
     <div class="example-button-row">
-        <button routerLink="/loginForm2" mat-mini-fab>aici</button>
+        <button (click)=onSwitch() mat-mini-fab>aici</button>
     </div>
 </div>
