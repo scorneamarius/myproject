@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, Output,EventEmitter } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../../classes/users';
 import { threadId } from 'worker_threads';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
@@ -47,13 +48,40 @@ export class StockComponent implements OnInit {
   fruitsAndVegetables=[];
   error=false;
   errorMessage="Nu ati introdus date corecte in campul stoc sau pret!";
-  
+  // // De aici refactorizez
+  printList=false;
+  update(){
+    this.quantity=this.quantity;
+  }
+  list(){
+    this.printList=!this.printList;
+  }
+  printUpdate=false;
+  event=new EventEmitter();
+  initStockDetail(productName,quantity,productPrice){
+    this.printUpdate=true;
+    this.productName=productName;
+    this.quantity=quantity;
+    this.productPrice=productPrice;
+    this.event.emit();
+  }
+    productName;
+    quantity;
+    productPrice;
+  //   handleInputEvent(obiect:{product,stockValue}){
+  //     console.log(obiect.product);
+  //     console.log(obiect.stockValue);
+  //     this.updateStock(obiect.product,obiect.stockValue);
+  //     // this.printStockDetailComponent=false;
+
+  //   }
+  //aici se sfarseste
   onHandleError(){
     this.error=false;
   }
 
   updateStock(nume,cantitate)
-  {
+  {console.log("updatestock"+" "+nume+" "+cantitate);
     if(cantitate>=0 && cantitate <=9999999999999999 && cantitate.length!=0 && cantitate.indexOf(' ')==-1 && cantitate.indexOf('+')==-1)
     {
         this.error=false;
