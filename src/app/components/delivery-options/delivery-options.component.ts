@@ -17,8 +17,7 @@ export class DeliveryOptionsComponent implements OnInit {
   back(){
     if (this.loginService.loginMode == true)
     {
-        // this.router.navigate(['/userProfile']);
-        this.router.navigate(['/descriptionFirstPage']);
+      this.router.navigate(['/userProfile']);
     }
     else
     {
