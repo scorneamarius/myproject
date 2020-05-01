@@ -1,4 +1,4 @@
-<div style="margin-left: 20px;">
+<div style="margin-left: 60px;">
   <div class=".container-fluid">
     <h2>Update your stock!</h2>
     <p>Below you have a button and and a dropdown form. </p>
@@ -45,10 +45,9 @@
   <div>
     <input [(ngModel)]="productPrice" #inputPrice>
     <button class="btn btn-primary" (click)="updatePrice(productName,inputPrice.value)" style="width:79px;margin-left: 10px;">Update Price</button>
-    <hr/> 
   </div>
   </div>
-  
+  <button  (click)="close()" style="width:75px" class="btn btn-primary">close</button><hr/> 
 </div>
 
 <div style="width:300px" *ngIf="printList" class=".container-fluid">

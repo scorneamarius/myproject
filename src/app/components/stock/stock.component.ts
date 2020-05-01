@@ -58,6 +58,9 @@ export class StockComponent implements OnInit {
   }
   printUpdate=false;
   event=new EventEmitter();
+  close(){
+    this.printUpdate=!this.printUpdate;
+  }
   initStockDetail(productName,quantity,productPrice){
     this.printUpdate=true;
     this.productName=productName;

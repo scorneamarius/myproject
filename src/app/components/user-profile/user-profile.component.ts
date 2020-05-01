@@ -12,8 +12,11 @@ export class UserProfileComponent implements OnInit {
   constructor(private cookieService:CookieService,public router:Router,public loginService:LoginServiceService) { }
   username=this.cookieService.get('usernameCookie');
   printShoppingBasket=false;
-  invert(){
+  close(){
 
+    this.printShoppingBasket=false;
+  }
+  invert(){
     this.printShoppingBasket=!this.printShoppingBasket;
   }
  

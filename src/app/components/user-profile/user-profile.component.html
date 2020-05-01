@@ -28,8 +28,10 @@
       </li>
     </ul>
 </nav>
-<div *ngIf="printShoppingBasket">
+<!-- <div *ngIf="printShoppingBasket">
   <button id='closeCos' (click)="invert()"> X </button>
-  <app-shopping-basket ></app-shopping-basket></div>
+  <app-shopping-basket ></app-shopping-basket>
+</div> -->
+<app-shopping-basket (onCloseShoppingBasket)="close()" *ngIf="printShoppingBasket"></app-shopping-basket>
 <router-outlet></router-outlet>
   
