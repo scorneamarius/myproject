@@ -1,12 +1,14 @@
-<h2>Comenzile dvs:</h2>
+<h1>Your orders</h1>
 <div  *ngFor="let user of orders | async">
     <div *ngIf=checkUser(user.vanzator)>
-        <div>{{'Cumparator:'+user.cumparator}}</div>
-        <div>{{'Produs:'+user.produs}}</div>
-        <div>{{'Cantitate:'+user.cantitate}}</div>
-        <div>{{'Pret:'+user.pret}}</div>
-        <div>{{'Adresa:'+user.address}}</div>
-        <div>{{'Data:'+user.time}}</div>
         <hr/>
+        <table>
+            <tr><th>Buyer</th><td>{{ user.cumparator }}</td><td rowspan="6" id="photo"><img src='assets/images/{{user.produs}}.png' style="display:block;width:250px;height:200px;"></td></tr>
+            <tr><th>Product</th><td>{{ user.produs }} </td></tr>
+            <tr><th>Quantity</th><td>{{ user.cantitate }}</td></tr>
+            <tr><th>Price</th><td>{{ user.pret }}</td></tr>
+            <tr><th>Address</th><td>{{ user.address }}</td></tr>
+            <tr><th>Date</th><td>{{ user.time }}</td></tr>
+          </table>
     </div>
 </div>

@@ -1,0 +1,15 @@
+table, th, td {
+    text-align: center;
+    border-collapse: collapse;
+    padding:5px;
+    font-size: 15px;
+  }
+  th, td{
+      width: 10%;
+  }
+  td#photo{
+      width: 20%;
+  }
+  hr{
+      background-color: black;
+  }
