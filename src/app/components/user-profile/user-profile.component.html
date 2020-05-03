@@ -21,12 +21,17 @@
         <a class="nav-link" routerLink='orders'>Comenzile mele</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" (click)=logout()>Logout</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" id="cosText" (mouseenter)="invert()">Cos cumparaturi</a>
       </li>
     </ul>
 </nav>
-<div *ngIf="printShoppingBasket">
+<!-- <div *ngIf="printShoppingBasket">
   <button id='closeCos' (click)="invert()"> X </button>
-  <app-shopping-basket ></app-shopping-basket></div>
+  <app-shopping-basket ></app-shopping-basket>
+</div> -->
+<app-shopping-basket (onCloseShoppingBasket)="close()" *ngIf="printShoppingBasket"></app-shopping-basket>
 <router-outlet></router-outlet>
   

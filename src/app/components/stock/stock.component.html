@@ -1,14 +1,74 @@
-<div>
-  <div *ngFor="let x of fruitsAndVegetables">
-    {{x.name+":"+x.amount +" , pret :"+x.price}} <br /> 
-    Update la stoc
-    <input #inputStock>
-    <button (click)=updateStock(x.name,inputStock.value)>Update</button><br /> 
-    Update la pret
-    <input #inputPrice>
-    <button (click)="updatePrice(x.name,inputPrice.value)">Update</button>
-    <hr/> 
+<div style="margin-left: 60px;">
+  <div class=".container-fluid">
+    <h2>Update your stock!</h2>
+    <p>Below you have a button and and a dropdown form. </p>
+    <p>You can use them to easy update your products but still try to type correct inputs.</p>
+    <h6>The other users will see what you are changing on your stock and the latest updates<span class="badge badge-secondary">New</span></h6> 
+    <p>So, share your products with your friends on the best GardenShop Website!</p>                                         
+    
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a product!
+      <span class="caret"></span></button>
+      <button style="margin-left:11px; width: 118px;" (click)="list()" class="btn btn-primary" type="button">List the products</button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let x of fruitsAndVegetables"><a (click)="initStockDetail(x.name,x.amount,x.price)">{{x.name}}</a></li>
+      </ul>
+    </div>
   </div>
+
   <app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>
- 
+
+<div style="width:300px" *ngIf="printUpdate" class=".container-fluid">
+  <h2>The product that you select!</h2>
+  <p>This is your current stock and you can update it!</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th style="width:100px">Product Name</th>
+        <th style="width:100px">Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{productName}}</td>
+        <td>{{productPrice}}</td>
+        <td>{{quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <div style="height:28px">
+    <input [(ngModel)]="quantity" #inputStock>
+    <button style="margin-left: 10px;" class="btn btn-primary" (click)="updateStock(productName,inputStock.value)">Update Stock</button><br /> 
+  </div>
+  <div>
+    <input [(ngModel)]="productPrice" #inputPrice>
+    <button class="btn btn-primary" (click)="updatePrice(productName,inputPrice.value)" style="width:79px;margin-left: 10px;">Update Price</button>
+  </div>
+  </div>
+  <button  (click)="close()" style="width:75px" class="btn btn-primary">close</button><hr/> 
 </div>
+
+<div style="width:300px" *ngIf="printList" class=".container-fluid">
+  <h2>Garden Table</h2>
+  <p>This is your products store that you share with another users!</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of fruitsAndVegetables">
+        <td>{{x.name}}</td>
+        <td>{{x.price}}</td>
+        <td>{{x.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output} from '@angular/core';
 import { ShoppingBasketService } from 'src/app/services/shopping-basket.service';
 import { Observable } from 'rxjs';
 import { AngularFireModule } from 'angularfire2';
@@ -38,6 +38,12 @@ export class ShoppingBasketComponent implements OnInit {
   totalPrice;
   error=false;
   errorMessage:string='Vanzatorul dvs nu are indeajuns stoc!'
+  @Output() onCloseShoppingBasket=new EventEmitter();
+  closeShoppingBasket()
+  {
+    this.onCloseShoppingBasket.emit();
+  }
+
   onHandleError(){
     this.error=false;
   }
