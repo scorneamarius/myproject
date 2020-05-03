@@ -13,7 +13,7 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 })
 export class UserProfileComponent implements OnInit {
   users: Observable<any[]>;
-  constructor(public db: AngularFireDatabase,private cookieService:CookieService,public router:Router, public companyName:ChosenCompanyService) { 
+  constructor(public db: AngularFireDatabase,private cookieService:CookieService,public router:Router, public companyName:ChosenCompanyService,public loginService:LoginServiceService) { 
     this.users = db.list('users').valueChanges();
   }
   username=this.cookieService.get('usernameCookie');
