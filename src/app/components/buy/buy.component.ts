@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { CookieService } from 'ngx-cookie-service';
 import { ShoppingBasketService } from 'src/app/services/shopping-basket.service';
+import { ChosenCompanyService } from '../../services/chosen-company.service';
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.component.html',
@@ -10,7 +11,7 @@ import { ShoppingBasketService } from 'src/app/services/shopping-basket.service'
 })
 export class BuyComponent implements OnInit {
   users: Observable<any[]>;
-  constructor(public db: AngularFireDatabase,public cookieService:CookieService,public shoppingBasket:ShoppingBasketService) {
+  constructor(public db: AngularFireDatabase,public cookieService:CookieService,public shoppingBasket:ShoppingBasketService,public company:ChosenCompanyService) {
     this.users = db.list('users').valueChanges();
   }
   errorMessage="Nu ati introdus date corecte in campul de cumparare sau vanzatorul dvs. nu are destul stoc!";
@@ -18,12 +19,20 @@ export class BuyComponent implements OnInit {
   onHandleError(){
     this.error=false;
   }
-  ignoreCurrentUser(username):boolean
+  // nu mai avem nevoie de functia asta pentru ca afisam doar pentru compania selectata
+  // ignoreCurrentUser(username):boolean
+  // {
+  //   if(this.cookieService.get('usernameCookie')==username)
+  //     return false;
+  //   else 
+  //     return true;
+  // }
+  displayDetails(companyName):boolean
   {
-    if(this.cookieService.get('usernameCookie')==username)
-      return false;
-    else 
+    if(this.company.get() == companyName)
       return true;
+    else
+      return false;
   }
   addPurchasedItems(info:{username,usernameVendor,product,amount,price,cantitateInitiala,address})
   {
