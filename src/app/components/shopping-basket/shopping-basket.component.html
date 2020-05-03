@@ -1,4 +1,5 @@
 <div id="borderCos" >
+    <button (click)="closeShoppingBasket()">close</button>
      <div  *ngFor="let user of usersShoppingBasket | async">
         <div *ngIf=checkUser(user.username)>
             <p>{{user.usernameVendor}}</p>

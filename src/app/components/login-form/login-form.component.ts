@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { LoginServiceService } from '../../services/login-service.service';
 import { LoginFormComponent2Component } from '../login-form-component2/login-form-component2.component';
 import { Router } from '@angular/router';
@@ -12,12 +12,15 @@ import {User} from '../../classes/Users';
 export class LoginFormComponent implements OnInit {
 
   constructor(public _loginService:LoginServiceService,private router:Router) { }
-  
-  user=this._loginService.user;
-  
-  
+  @Output() switch=new EventEmitter<void>();
+  @Output() closeLoginFormComponent=new EventEmitter<void>();
+  onSwitch(){
+    this.switch.emit();
+  }
+  onCloseLoginFormComponent(){
+    this.closeLoginFormComponent.emit();
+  }
   ngOnInit(): void {
-   // this._loginService.initUser();
   }
  
   
@@ -25,7 +28,7 @@ export class LoginFormComponent implements OnInit {
   {
     if (this._loginService.checkAllInformation()==true)
     {
-        this.router.navigate(['/loginForm2']); 
+        this.onSwitch();
     }
     else
       console.log("false");

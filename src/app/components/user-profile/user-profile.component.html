@@ -31,14 +31,16 @@
         <a class="nav-link" routerLink='orders'><h4><i class="icon-reorder"></i>My orders</h4></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" (click)=logout()>Logout</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" id="cosText" (mouseenter)="invert()" style="color:blue;"><h4><i class="icon-shopping-cart"></i>Shopping cart</h4></a>
       </li>
     </ul> 
 </nav>
-<div *ngIf="printShoppingBasket">
-  <button id='closeCos' (click)="invert()"> X </button>
-  <app-shopping-basket ></app-shopping-basket>
-</div>
+
+<app-shopping-basket (onCloseShoppingBasket)="close()" *ngIf="printShoppingBasket"></app-shopping-basket>
+
 <router-outlet></router-outlet>
 </div>
 <div > 

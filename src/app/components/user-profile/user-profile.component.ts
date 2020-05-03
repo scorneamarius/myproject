@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { ChosenCompanyService } from '../../services/chosen-company.service';
+import { LoginServiceService } from 'src/app/services/login-service.service';
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -26,7 +28,22 @@ export class UserProfileComponent implements OnInit {
     else 
       return true;
   }
+  close(){
+
+    this.printShoppingBasket=false;
+  }
+ 
+  logout(){
+    this.loginService.loginMode=false;
+    this.cookieService.set('loginModeCookie',JSON.stringify(this.loginService.loginMode));
+    console.log(this.cookieService.get('loginModeCookie'));
+    this.router.navigate(['/descriptionFirstPage']);
+  }
+  
   ngOnInit(): void {
+    this.loginService.loginMode=true;
+    this.cookieService.set('loginModeCookie',JSON.stringify(this.loginService.loginMode));
+    console.log(this.cookieService.get('loginModeCookie'));
   }
   selection(company:string){
     this.companyName.add(company);

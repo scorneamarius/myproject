@@ -36,6 +36,8 @@ import { ShoppingBasketService } from './services/shopping-basket.service';
 import { AlertComponent } from './components/alert/alert.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChosenCompanyService } from './services/chosen-company.service';
+import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
+
 
 
 @NgModule({
@@ -55,13 +57,13 @@ import { ChosenCompanyService } from './services/chosen-company.service';
     TcComponent,
     DeliveryOptionsComponent,
     FrequentQuestionsComponent,
-
     UserProfileComponent,
     StockComponent,
     BuyComponent,
     ShoppingBasketComponent,
     AlertComponent,
     OrdersComponent,
+    StockDetailComponent,
 
 
   ],
