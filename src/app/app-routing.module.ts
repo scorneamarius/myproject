@@ -20,7 +20,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   {path:'stock',component:StockComponent},
-  {path:'userProfile',/*canActivate:[AuthGuard],*/component:UserProfileComponent,
+  {path:'userProfile',canActivate:[AuthGuard],component:UserProfileComponent,
     children:[
       {path:'stock',component:StockComponent},
       {path:'buy',component:BuyComponent},
