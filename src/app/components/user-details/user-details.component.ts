@@ -9,16 +9,16 @@ import { CookieService } from 'ngx-cookie-service';
   template:
   `
       <div>
-        {{company}}
+        <h1><b>{{company}}</b></h1>
         <p>{{'mere'+' '+mere+" pret:"+pretMere}} <input #inputMere name="mere">  <button (click)=buy(username,inputMere.name,inputMere.value,pretMere,mere)>buy</button></p>
         <p>{{'pere'+' '+pere+' pret:'+pretPere}} <input #inputPere name="pere"> <button (click)=buy(username,inputPere.name,inputPere.value,pretPere,pere)>buy</button></p>
         <p>{{'banane'+' '+banane+' pret:'+pretBanane}} <input #inputBanane name="banane"> <button (click)=buy(username,inputBanane.name,inputBanane.value,pretBanane,banane)>buy</button></p>
         <p>{{'portocale'+' '+portocale+' pret:'+pretPortocale}} <input #inputPortocale name="portocale"> <button (click)=buy(username,inputPortocale.name,inputPortocale.value,pretPortocale,portocale)>buy</button></p>
         <p>{{'cartofi'+' '+cartofi+' pret:'+pretCartofi}} <input #inputCartofi name="cartofi"> <button (click)=buy(username,inputCartofi.name,inputCartofi.value,pretCartofi,cartofi)>buy</button> </p>
         <p>{{'morcovi'+' '+morcovi+' pret:'+pretMorcovi}} <input #inputMorcovi name="morcovi"> <button (click)=buy(username,inputMorcovi.name,inputMorcovi.value,pretMorcovi,morcovi)>buy</button> </p>
-      <div>
-      <hr/>
-  `
+      </div>
+  `,
+  styles:['hr{background-color:black;}h1{text-align:center;}']
 })
 export class UserDetailsComponent implements OnInit {
  @Output() buyClicked=new EventEmitter<{username,usernameVendor,product,amount,pret,cantitateInitiala,address}>();

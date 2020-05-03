@@ -35,6 +35,7 @@ import { ShoppingBasketComponent } from './components/shopping-basket/shopping-b
 import { ShoppingBasketService } from './services/shopping-basket.service';
 import { AlertComponent } from './components/alert/alert.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ChosenCompanyService } from './services/chosen-company.service';
 
 
 @NgModule({
@@ -74,7 +75,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     AngularFireDatabaseModule,
     AngularFireModule , 
   ],
-  providers: [LoginServiceService,AuthGuard,CookieService,ShoppingBasketService],
+  providers: [LoginServiceService,AuthGuard,CookieService,ShoppingBasketService,ChosenCompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

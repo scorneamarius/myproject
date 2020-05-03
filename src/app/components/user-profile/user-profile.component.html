@@ -15,8 +15,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink='stock'><h4><i class="icon-inbox"></i>My stock</h4></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink='buy'><h4><i class="icon-search"></i>Buy</h4></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <h4><i class="icon-search"></i>Buy</h4>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div *ngFor="let user of users | async">
+        <div *ngIf="ignoreCurrentUser(user.username)">
+          <a class="dropdown-item" (click)="selection(user.company)">{{ user.company }}</a>
+          </div>
+          </div>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink='orders'><h4><i class="icon-reorder"></i>My orders</h4></a>
@@ -24,7 +33,7 @@
       <li class="nav-item">
         <a class="nav-link" id="cosText" (mouseenter)="invert()" style="color:blue;"><h4><i class="icon-shopping-cart"></i>Shopping cart</h4></a>
       </li>
-    </ul>
+    </ul> 
 </nav>
 <div *ngIf="printShoppingBasket">
   <button id='closeCos' (click)="invert()"> X </button>
