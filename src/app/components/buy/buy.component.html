@@ -19,11 +19,30 @@
                         [pretBanane]=user.pretBanane
                         [pretCartofi]=user.pretCartofi
                         [pretPortocale]=user.pretPortocale
-                        [pretMorcovi]=user.pretMorcovi>   
-                              
+                        [pretMorcovi]=user.pretMorcovi>                 
             </app-user-details>
         </div>
-     
+        <div *ngIf="displayDetailsForSearchResult()">
+            <app-user-details 
+                        (buyClicked)="addPurchasedItems($event)"
+                        [username]=user.username 
+                        [company] =user.company
+                        [email]=user.email
+                        [address]=user.address
+                        [mere]=user.mere
+                        [pere]=user.pere
+                        [banane]=user.banane
+                        [portocale]=user.portocale
+                        [morcovi]=user.morcovi
+                        [cartofi]=user.cartofi
+                        [pretMere]=user.pretMere
+                        [pretPere]=user.pretPere
+                        [pretBanane]=user.pretBanane
+                        [pretCartofi]=user.pretCartofi
+                        [pretPortocale]=user.pretPortocale
+                        [pretMorcovi]=user.pretMorcovi>                 
+            </app-user-details>
+        </div>
     </div>
     <app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>
  </div>
