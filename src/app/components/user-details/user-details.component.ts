@@ -121,6 +121,12 @@ import { ChosenCompanyService } from '../../services/chosen-company.service';
         </tr>
         </table>
         </div>
+        
+        <div *ngIf="unknownProduct()">
+        <h3>Sorry, but the product you are looking for is not in stock or is not sold on this site.</h3>
+        <img src="assets/images/notFound.png" width="300px" height="250px">
+        </div>
+
       </div>
   `,
   styles:['hr{background-color:black;}h1{text-align:center;}tr,td{font-size:13px;}']
@@ -145,6 +151,7 @@ export class UserDetailsComponent implements OnInit {
  @Input() pretMorcovi:string;
 
  currentUsername=this.cookieService.get('usernameCookie');
+ displayed = false;
  
  buy(username,fruit,quantity,price,cantitate)
  {
@@ -173,6 +180,20 @@ export class UserDetailsComponent implements OnInit {
      return true;
   else
    return false;
+}
+unknownProduct(){
+  if(['mere','pere','banane','portocale','cartofi','morcovi'].includes(this.searchService.searchResult)){
+    this.displayed = false;
+    return false;
+  }
+  else if(this.displayed == false){
+    this.displayed = true;
+    return true;
+  }
+  else{
+    this.displayed = false;
+    return false;
+  }
 }
   constructor(public cookieService:CookieService, public searchService:SearchService, public chosenCompany:ChosenCompanyService) {}
 
