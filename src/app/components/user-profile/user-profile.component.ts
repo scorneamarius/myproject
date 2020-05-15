@@ -19,9 +19,6 @@ export class UserProfileComponent implements OnInit {
   }
   username=this.cookieService.get('usernameCookie');
   printShoppingBasket=false;
-  invert(){
-    this.printShoppingBasket=!this.printShoppingBasket;
-  }
   ignoreCurrentUser(username):boolean
   {
     if(this.cookieService.get('usernameCookie')==username)

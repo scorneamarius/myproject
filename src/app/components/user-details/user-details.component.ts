@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchService } from '../../services/search.service';
 import { ChosenCompanyService } from '../../services/chosen-company.service';
+import { Router } from '@angular/router';
 
 
 
@@ -10,7 +11,7 @@ import { ChosenCompanyService } from '../../services/chosen-company.service';
   selector: 'app-user-details',
   template:
   `
-      <div *ngIf="checkForCompany()">
+      <div *ngIf="checkForCompany()" id="responsive">
         <h1><b>{{company}}</b></h1>
         <table>
           <tr>
@@ -129,7 +130,7 @@ import { ChosenCompanyService } from '../../services/chosen-company.service';
 
       </div>
   `,
-  styles:['hr{background-color:black;}h1{text-align:center;}tr,td{font-size:13px;}']
+  styles:['hr{background-color:black;}h1{text-align:center;}tr,td{font-size:13px;}#responsive{overflow-x:auto;}']
 })
 export class UserDetailsComponent implements OnInit {
  @Output() buyClicked=new EventEmitter<{username,usernameVendor,product,amount,pret,cantitateInitiala,address}>();
@@ -167,8 +168,9 @@ export class UserDetailsComponent implements OnInit {
         address:this.address
       }
     );
+    this.router.navigate(['userProfile/shoppingBasket']);
  }
-//  functia check afiseaza toate produsele daca am ales una dintre optiunile de la dropdown  button sau doar produsul cu pretul cel mai ieftin
+//  functia check afiseaza toate produsele daca am ales una dintre optiunile de la dropdown button sau doar produsul cu pretul cel mai ieftin
  checkForCompany(){
    if(this.chosenCompany.chosenCompany != "" && this.searchService.searchResult == "")
       return true;
@@ -195,7 +197,7 @@ unknownProduct(){
     return false;
   }
 }
-  constructor(public cookieService:CookieService, public searchService:SearchService, public chosenCompany:ChosenCompanyService) {}
+  constructor(public cookieService:CookieService, public router:Router, public searchService:SearchService, public chosenCompany:ChosenCompanyService) {}
 
   ngOnInit(): void {
   }

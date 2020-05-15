@@ -8,20 +8,19 @@
     background: rgba(0,0,0,0.75);
     z-index:50;
 }
-#borderCos{
-    background:#dedede;
-    position:absolute;
-    right: 10px;
-    top:37vh;
-    /* left:20vw; */
-    width:350px;
-    overflow-y: scroll;
-    height: 300px;
-    padding:16px;
-    z-index:100;
-    box-shadow:0 2px 8px rbga(0,0,0,0.26);
-    
-}
 .alert-box-actions{
     text-align:right;
+}
+table{
+  table-layout: fixed;
+  width: 100%; 
+}
+td{
+    text-align: center;
+}
+button:focus{
+    background-color: green;
+}
+button:hover{
+    background-color: green;
 }

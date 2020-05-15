@@ -34,16 +34,16 @@
         <a class="nav-link" (click)=logout() style="color:rgb(11, 82, 236);"><h4><i class="icon-signout"></i>Logout</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="cosText" (mouseenter)="invert()" style="color:rgb(11, 82, 236);;"><h4><i class="icon-shopping-cart"></i>Shopping cart</h4></a>
+        <a class="nav-link" id="cosText" routerLink='shoppingBasket' style="color:rgb(11, 82, 236);;"><h4><i class="icon-shopping-cart"></i>Shopping cart</h4></a>
       </li>
-    </ul> 
+      </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2"[(ngModel)]="searchService.searchResult" name="search" type="search" placeholder="Search" aria-label="Search" >
       <button (click)=searchResult() class="btn my-2 my-sm-0 custom-search" type="submit" style="color:rgb(11, 82, 236) ;border:none;"><h4><i class="icon-search"></i></h4></button>
     </form>
 </nav>
 
-<app-shopping-basket (onCloseShoppingBasket)="close()" *ngIf="printShoppingBasket"></app-shopping-basket>
+<!-- <app-shopping-basket (onCloseShoppingBasket)="close()" *ngIf="printShoppingBasket"></app-shopping-basket> -->
 
 <router-outlet></router-outlet>
 </div>
