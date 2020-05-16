@@ -1,0 +1,27 @@
+<div>
+    <h2>Create your wishlist here </h2>
+ 
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="What do you want to buy?" [(ngModel)]="task" />
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" type="button" (click)="onClick()">
+        <span class="glyphicon glyphicon-ok"></span>
+        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <br />
+        <div *ngFor="let task of this.wishService.items">
+            <table>
+                <tr>
+                    <td width="20%"><h3><a class="icon-circle-arrow-right"><b>{{ task }}</b></a></h3></td>
+                    <td width="20%"><button (click)="this.wishService.deleteItem(task)"><h5>Already bought</h5></button></td>
+                </tr>
+            </table>
+        </div>
+ 
+</div>

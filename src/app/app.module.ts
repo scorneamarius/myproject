@@ -39,6 +39,7 @@ import { ChosenCompanyService } from './services/chosen-company.service';
 import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
 import { SearchService } from './services/search.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 
@@ -66,6 +67,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
     AlertComponent,
     OrdersComponent,
     StockDetailComponent,
+    WishlistComponent,
 
 
   ],

@@ -26,7 +26,7 @@ export class LoginFormComponent2Component implements OnInit {
     if (this._loginService.isCurrentUserAbleToLogin())
     {
       this.onClose();
-      this.router.navigate(['/userProfile']); 
+      this.router.navigate(['/userProfile/stock']); 
       this._loginService.notWorkingLogin=false;
       this.cookieService.set('usernameCookie',this._loginService.current_username);
       this.cookieService.set('passwordCookie',this._loginService.current_password);
