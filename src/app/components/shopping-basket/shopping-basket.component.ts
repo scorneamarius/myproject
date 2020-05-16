@@ -5,7 +5,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ShoppingBasket } from '../../classes/shoppingBasket';
 import { CookieService } from 'ngx-cookie-service';
-import { User } from '../../classes/users'
+import { User } from '../../classes/users';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormsModule } from "@angular/forms";
 @Component({
   selector: 'app-shopping-basket',
   templateUrl: './shopping-basket.component.html',
@@ -15,7 +16,17 @@ export class ShoppingBasketComponent implements OnInit {
   usersShoppingBasket: Observable<any[]>;
   infoFromDatabase:User[];
   infoFromShoppingBasket:ShoppingBasket[];
-  constructor(public db:AngularFireDatabase,public cookieService:CookieService){
+  deliveryOptions:any;
+  paymentMethod = '';
+  form: FormGroup;
+  form2: FormGroup;
+  constructor(public db:AngularFireDatabase,public cookieService:CookieService, fb: FormBuilder){
+    this.form = fb.group({
+      delivery: ['', Validators.required]
+    });
+    this.form2 = fb.group({
+      payment: ['', Validators.required]
+    });
     this.usersShoppingBasket = db.list('shoppingBasket').valueChanges();
     db.list<ShoppingBasket>('shoppingBasket').valueChanges()
       .subscribe(
@@ -35,15 +46,26 @@ export class ShoppingBasketComponent implements OnInit {
           this.infoFromDatabase = data;
         });
   }
+  delivery=0;
+  getDeliveryOptions(){
+    if(this.form.get('delivery').value == 'post'){
+      this.delivery = 10;
+    }
+    else if(this.form.get('delivery').value == 'courier'){
+      this.delivery = 15;
+    }
+  }
+  getPaymentOptions(){
+    console.log(this.form2.get('payment').value);
+  }
   totalPrice;
   error=false;
   errorMessage:string='Vanzatorul dvs nu are indeajuns stoc!'
-  @Output() onCloseShoppingBasket=new EventEmitter();
-  closeShoppingBasket()
-  {
-    this.onCloseShoppingBasket.emit();
-  }
-
+  // @Output() onCloseShoppingBasket=new EventEmitter();
+  // closeShoppingBasket()
+  // {
+  //   this.onCloseShoppingBasket.emit();
+  // }
   onHandleError(){
     this.error=false;
   }
@@ -142,6 +164,7 @@ export class ShoppingBasketComponent implements OnInit {
     });
   }
   comanda(){
+    this.delivery = 0;
     let keys=[];
     this.infoFromShoppingBasket.forEach(elem=>{
       if(elem.username==this.cookieService.get('usernameCookie'))
@@ -241,8 +264,7 @@ export class ShoppingBasketComponent implements OnInit {
     if(cantitateParseInt!=0)
     {
       this.db.list('shoppingBasket').update(key,{amount:cantitateParseInt-1});
-    }
-        
+    } 
   }
   deleteKeys(keys)
   {

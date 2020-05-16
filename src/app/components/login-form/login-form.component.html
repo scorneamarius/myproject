@@ -1,55 +1,57 @@
 <div id="loginForm">
     <p *ngIf="_loginService.notWorkingAutentification">
-        Autentificarea nu a reusit!
+        Authentication failed!
     </p>
     <div class="example-button-row">
-        <button (click)="onCloseLoginFormComponent()" mat-mini-fab>X</button>
+        <button (click)="onCloseLoginFormComponent()" mat-mini-fab class="button-custom">X</button>
     </div>
     <form class="example-form">
-        <mat-form-field class="example-full-width">
-        <mat-label>Company</mat-label>
+        <mat-form-field class="example-full-width text-custom">
+        <mat-label><h5>Company</h5></mat-label>
         <input [(ngModel)]="_loginService.company" name="company" matInput value="Taraba lu Vasile srl">
         </mat-form-field>
-    
-        <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width">
-            <mat-label>First name</mat-label>
+        <br/><br/>
+        <table class="example-full-width text-custom" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width text-custom">
+            <mat-label><h5>First name</h5></mat-label>
             <input [(ngModel)]="_loginService.firstName" name="firstName" matInput value="Vasile">
         </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
-            <mat-label>Last Name </mat-label>
+        <td><mat-form-field class="example-full-width text-custom">
+            <mat-label><h5>Last Name </h5></mat-label>
             <input [(ngModel)]="_loginService.lastName" name="lastName" matInput value="Gheorghe">
         </mat-form-field></td>
         </tr></table>
     
-        
-        <mat-form-field class="example-full-width">
-            <mat-label>Adresa</mat-label>
+        <br/>
+        <mat-form-field class="example-full-width text-custom">
+            <mat-label><h5>Address</h5></mat-label>
             <input [(ngModel)]="_loginService.address" name="address" matInput >
             </mat-form-field>
-    
-        <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
+            <br/><br/>
+        <table class="example-full-width text-custom" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width text-custom">
+            <mat-label><h5>Password</h5></mat-label>
             <input  [(ngModel)]="_loginService.password" name="password" type="password" matInput >
         </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
-            <mat-label>email</mat-label>
+        <td><mat-form-field class="example-full-width text-custom">
+            <mat-label><h5>email</h5></mat-label>
             <input  [(ngModel)]="_loginService.email" name="email" type="email" matInput placeholder="nume@yahoo.com">
         </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
-            <mat-label>Nume utilizator</mat-label>
+        <td><mat-form-field class="example-full-width text-custom">
+            <mat-label><h5>Username</h5></mat-label>
             <input [(ngModel)]="_loginService.username" name="username" matInput>
         </mat-form-field></td>
         </tr></table>
     </form>
+    <br/>
     <div class="example-button-row">
-        <button (click)="nextRoute()"mat-mini-fab>Autentificare</button>
+        <button (click)="nextRoute()"mat-mini-fab class="button-custom button-align" style="height: 30px;"><h3>Sign up</h3></button>
     </div>
-    <p>
-        Ai deja cont? Daca da , apasa butonul de mai jos
+    <br/>
+    <p style="font-size:14px;text-align: center;">
+        You have already an account? Click the button below.
     </p>
     <div class="example-button-row">
-        <button (click)=onSwitch() mat-mini-fab>aici</button>
+        <button (click)=onSwitch() mat-mini-fab class="button-custom button-align"><h5>Login</h5></button>
     </div>
 </div>

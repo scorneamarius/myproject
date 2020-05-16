@@ -4,6 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { CookieService } from 'ngx-cookie-service';
 import { ShoppingBasketService } from 'src/app/services/shopping-basket.service';
 import { ChosenCompanyService } from '../../services/chosen-company.service';
+import { SearchService } from 'src/app/services/search.service';
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.component.html',
@@ -11,7 +12,7 @@ import { ChosenCompanyService } from '../../services/chosen-company.service';
 })
 export class BuyComponent implements OnInit {
   users: Observable<any[]>;
-  constructor(public db: AngularFireDatabase,public cookieService:CookieService,public shoppingBasket:ShoppingBasketService,public company:ChosenCompanyService) {
+  constructor(public db: AngularFireDatabase,public cookieService:CookieService,public shoppingBasket:ShoppingBasketService,public company:ChosenCompanyService, public searchService:SearchService) {
     this.users = db.list('users').valueChanges();
   }
   errorMessage="Nu ati introdus date corecte in campul de cumparare sau vanzatorul dvs. nu are destul stoc!";
@@ -29,7 +30,14 @@ export class BuyComponent implements OnInit {
   // }
   displayDetails(companyName):boolean
   {
-    if(this.company.get() == companyName)
+    if(this.company.get() != "" && this.company.get() == companyName){
+      return true;
+    }
+    else
+      return false;
+  }
+  displayDetailsForSearchResult(){
+    if(this.searchService.searchResult != "")
       return true;
     else
       return false;

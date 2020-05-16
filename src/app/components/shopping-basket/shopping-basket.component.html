@@ -1,20 +1,73 @@
-<div id="borderCos" >
-    <button (click)="closeShoppingBasket()">close</button>
-     <div  *ngFor="let user of usersShoppingBasket | async">
+<div>
+    <div *ngFor="let user of usersShoppingBasket | async">
         <div *ngIf=checkUser(user.username)>
-            <p>{{user.usernameVendor}}</p>
-            <p>{{user.product}}</p>
-            <div>
-                <p>{{"cantitate:"+user.amount}}</p>
-                <button (click)="add(user.key,user.amount,user.usernameVendor,user.product)">+</button>
-                <button (click)="decrese(user.key,user.amount)">-</button>
-                <button (click)="delete(user.key)">delete</button>
-            </div>
-            <p>{{"pret:"+user.price*user.amount}}</p>
-            <hr/>
+           <table >
+            <tr>
+                <td ><img src="assets/images/{{user.product}}.png" width="150px" height="150px"></td>
+                <td ><h2>Company:<br> {{user.usernameVendor}}</h2></td>
+                <td ><h2>Product:<br> {{user.product}}</h2></td>
+                <td ><h2>Quantity: </h2><br>
+                    <div style="display: inline;">
+                    <button (click)="decrese(user.key,user.amount)"><h4>-</h4></button>
+                    <span style="font-size: 20px"> {{user.amount}} </span>
+                    <button (click)="add(user.key,user.amount,user.usernameVendor,user.product)"><h4>+</h4></button>
+                </div>
+                </td>
+                <td ><h2>Price: <br>{{user.price*user.amount}} RON</h2></td>
+                <td><button (click)="delete(user.key)"><h3>Delete</h3></button></td>
+            </tr>
+           </table>
+           <hr>
         </div>
-    </div>       
-    {{'Pret total : '+totalPrice}} <hr/>
-    <button (click)="comanda()">Comanda!</button>
+    </div>
+    <div *ngIf="totalPrice > 0">
+      <table>
+        <tr>
+          <td>
+    <h2>Delivery options:</h2>
+      <form [formGroup]="form">
+        <label>
+          <input type="radio" value="post" formControlName="delivery" name='delivery' >
+            <span style="font-size: 15px;">Romanian Post -> 10 RON</span>
+        </label><br>
+        <label>
+          <input type="radio" value="courier" formControlName="delivery" name='delivery'>
+            <span style="font-size: 15px;">URGENT CARGUS/FAN COURIER -> 15 RON</span>
+        </label>
+     </form>
+     <button (click)="getDeliveryOptions()"><h5>Choose delivery method</h5></button>
+    </td>
+    <td>
+      <h2>Payment method:</h2>
+      <form [formGroup]="form2">
+        <label>
+          <input type="radio" value="cash" formControlName="payment" name='payment' >
+            <span style="font-size: 15px;">Cash on delivery</span>
+        </label><br>
+        <label>
+          <input type="radio" value="card" formControlName="payment" name='payment'>
+            <span style="font-size: 15px;">Payment Card Online</span>
+        </label>
+     </form>
+     <button (click)="getPaymentOptions()"><h5>Choose payment method</h5></button>
+    </td>
+    </tr>
+    </table>
+    </div>
+    <hr>
+    <div *ngIf="this.delivery == 10 && totalPrice > 0" style="text-align: center;">
+      <h2>Price for delivery: 10 RON</h2>
+    </div>
+    <div *ngIf="this.delivery == 15 && totalPrice > 0" style="text-align: center;">
+      <h2>Price for delivery: 15 RON</h2>
+    </div> 
+    <div style="text-align: center;" *ngIf="totalPrice > 0">
+    <h2>Products price:{{totalPrice}} RON</h2>
+    <h1>Total price:{{totalPrice + this.delivery}} RON</h1>
+    </div>
+    <div *ngIf="this.delivery != 0 && totalPrice > 0" style="text-align: center;"><button (click)="comanda()"><h1>Send the order</h1></button></div>
+    <div *ngIf="this.delivery == 0 && totalPrice == 0" style="text-align: center;"><h1>Your shopping cart is empty.</h1><br>
+      <img src="assets/images/cart.jpg" width="100px" height="100px">
+    </div>
 </div>
-   <app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>
+<app-alert [message]="errorMessage" *ngIf="error" (close)="onHandleError()"></app-alert>

@@ -24,7 +24,8 @@ const routes: Routes = [
     children:[
       {path:'stock',component:StockComponent},
       {path:'buy',component:BuyComponent},
-      {path:'orders',component:OrdersComponent}
+      {path:'orders',component:OrdersComponent},
+      {path:'shoppingBasket',component:ShoppingBasketComponent}
   ]},
   {path:'users',component:UsersComponent},
   {path:'',component: DescriptionFirstPageComponent},

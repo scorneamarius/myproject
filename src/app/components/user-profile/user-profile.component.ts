@@ -5,6 +5,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { ChosenCompanyService } from '../../services/chosen-company.service';
 import { LoginServiceService } from 'src/app/services/login-service.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,14 +14,11 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 })
 export class UserProfileComponent implements OnInit {
   users: Observable<any[]>;
-  constructor(public db: AngularFireDatabase,private cookieService:CookieService,public router:Router, public companyName:ChosenCompanyService,public loginService:LoginServiceService) { 
+  constructor(public db: AngularFireDatabase,private cookieService:CookieService,public router:Router, public companyName:ChosenCompanyService,public loginService:LoginServiceService, public searchService:SearchService) { 
     this.users = db.list('users').valueChanges();
   }
   username=this.cookieService.get('usernameCookie');
   printShoppingBasket=false;
-  invert(){
-    this.printShoppingBasket=!this.printShoppingBasket;
-  }
   ignoreCurrentUser(username):boolean
   {
     if(this.cookieService.get('usernameCookie')==username)
@@ -47,7 +45,16 @@ export class UserProfileComponent implements OnInit {
   }
   selection(company:string){
     this.companyName.add(company);
+    this.searchService.deleteSearch();
     this.router.navigate(['userProfile/buy']);
+  }
+  searchResult(){
+    if(this.searchService.getResult() != ""){
+      this.companyName.deleteChoice();
+      this.searchService.price = 10000;
+      this.searchService.findMinimalPrice();
+      this.router.navigate(['userProfile/buy']);
+    }
   }
 
 }

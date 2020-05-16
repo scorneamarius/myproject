@@ -1,29 +1,32 @@
 <div id="loginForm2">
     <div class="example-button-row">
-        <button (click)="onClose()" mat-mini-fab>X</button>
+        <button (click)="onClose()" mat-mini-fab class="button-custom">X</button>
     </div>
 <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Nume utilizator</mat-label>
-      <input  autocomplete="off" [(ngModel)]="_loginService.current_username" name="username" matInput>
+      <br/><br/>
+    <mat-form-field class="example-full-width text-custom">
+      <mat-label><h5>Username</h5></mat-label>
+      <input  autocomplete="off" [(ngModel)]="_loginService.current_username" name="username" matInput >
     </mat-form-field>
   
-    <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
+    <br/><br/>
+    <mat-form-field class="example-full-width text-custom">
+        <mat-label><h5>Password</h5></mat-label>
         <input autocomplete="off"  [(ngModel)]="_loginService.current_password" name="password" matInput type="password">
       </mat-form-field>
   </form>
   <div class="example-button-row">
-    <button (click)="nextRoute()" mat-mini-fab>Login</button>
+    <br/><br/><br/>
+    <button (click)="nextRoute()" mat-mini-fab class="button-custom button-align" style="height: 30px;"><h3>Login</h3></button>
 </div>
-  <p>
-      Nu ai cont? Apasa pe butonul de jos
+  <p style="font-size:14px;text-align: center;"><br/><br/><br/>
+      If you do not have an account created click on the button below.
   </p>
-  <div class="example-button-row">
-    <button (click)="onSwitch()" mat-mini-fab>aici</button>
+  <div class="example-button-row align-button">
+    <button (click)="onSwitch()" mat-mini-fab class="button-custom button-align"><h5>Sign up</h5></button>
 </div>
 
 <p *ngIf="_loginService.notWorkingLogin">
-  Nu ai reusit sa le loghezi!
+ You failed to log in.
 </p>
 </div>

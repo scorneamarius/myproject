@@ -37,6 +37,9 @@ import { AlertComponent } from './components/alert/alert.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChosenCompanyService } from './services/chosen-company.service';
 import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
+import { SearchService } from './services/search.service';
+import { CompleteTheOrderComponent } from './components/complete-the-order/complete-the-order.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 
 
 
@@ -64,6 +67,7 @@ import { StockDetailComponent } from './components/stock-detail/stock-detail.com
     AlertComponent,
     OrdersComponent,
     StockDetailComponent,
+    CompleteTheOrderComponent,
 
 
   ],
@@ -76,8 +80,10 @@ import { StockDetailComponent } from './components/stock-detail/stock-detail.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireModule , 
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [LoginServiceService,AuthGuard,CookieService,ShoppingBasketService,ChosenCompanyService],
+  providers: [LoginServiceService,AuthGuard,CookieService,ShoppingBasketService,ChosenCompanyService,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
