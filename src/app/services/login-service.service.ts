@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { map } from 'rxjs/operators';
-import {User} from '../classes/users'
-import {Observable} from 'rxjs'
-import {filter} from 'rxjs/operators'
+import {User} from '../classes/users';
+import {Observable} from 'rxjs';
+import {filter} from 'rxjs/operators';
 import { timingSafeEqual } from 'crypto';
 import { element } from 'protractor';
 import { FindValueSubscriber } from 'rxjs/internal/operators/find';
+import { AsyncAction } from 'rxjs/internal/scheduler/AsyncAction';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,7 @@ export class LoginServiceService {
       email="";
       firstName="";
       lastName="";
+      key="";
 
       // the next variables are used for current user that is trying to connect
       current_username="";
@@ -188,11 +190,59 @@ export class LoginServiceService {
             address:this.address,
             email:this.email,
             firstName:this.firstName,
-            lastName:this.lastName
+            lastName:this.lastName,
+            mere:0,
+            pere:0,
+            portocale:0,
+            morcovi:0,
+            cartofi:0,
+            banane:0,
+            pretMere:0,
+            pretPere:0,
+            pretBanane:0,
+            pretPortocale:0,
+            pretMorcovi:0,
+            pretCartofi:0
           }
         );
+        // let's push the key inside of the user
+        let itemsRef = this._db.list('users');
+        itemsRef.snapshotChanges()
+          .subscribe(actions => {
+            actions.forEach(action => {
+              let x =JSON.stringify(action.payload.val());
+              let y=JSON.parse(x)
+              if(y.username==this.username)
+              {
+                this._db.list('users').update(action.key,{key:action.key});
+                this.key=action.key;
+              }
+              });
+            });
+        }
+        getKey(username):string
+        { 
+          let ok=0;
+          let aux;
+          this.infoFromDatabase.forEach(
+            user=>
+            {
+              if(user.username==username)
+              {
+                ok=1;
+                aux= (JSON).stringify(user.key);
+              }
+            }
+          )
+         if(ok==0) 
+            console.log("Nu a fost gasita cheia pentru username-ul "+username);
+          else
+          return aux;
+        }
       }
+    
  
+          
 
   // msg()
   // { 
@@ -228,4 +278,3 @@ export class LoginServiceService {
   }*/
 
  
-}

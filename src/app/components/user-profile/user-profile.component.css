@@ -1,0 +1,29 @@
+#cosText{
+    position: absolute;
+    right: 10px;
+}
+#closeCos{
+    position: absolute;
+    right: 40px;
+    margin-top: 10px;
+    background:#dedede;
+    /* color:black;
+    border: 1px solid red;
+   /* font-weight: bold; 
+   border-radius: 50%; */
+
+    z-index: 110;
+}
+.nav-link{
+    cursor: pointer;
+}
+.navbar-custom{
+    background-color: black
+}
+
+.custom-search:hover{
+    background-color: black;
+}
+.dropdown-custom:hover{
+    background-color:rgb(11, 82, 236);;
+}

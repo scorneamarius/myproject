@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DescriptionFirstPageComponent } from './components/description-first-page/description-first-page.component';
@@ -11,19 +10,38 @@ import {NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { LoginFormComponent2Component } from './components/login-form-component2/login-form-component2.component'; 
 import { FormsModule} from '@angular/forms';
-import{ AngularFireModule} from 'angularfire2';
+import { AngularFireModule} from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import{ AngularFireDatabaseModule} from 'angularfire2/database';
-import {User} from './classes/users'
+import {User} from './classes/users';
 import { LoginServiceService } from './services/login-service.service';
 import { AfterLoginComponent } from './components/after-login/after-login.component';
 import { NotPageFoundComponent } from './components/not-page-found/not-page-found.component';
-import { UserPageComponent } from './components/user-page/user-page.component';
 import { LoginUserPageComponent } from './components/login-user-page/login-user-page.component';
 import { AuthGuard } from './services/auth-guard.service';
 import {CookieService} from 'ngx-cookie-service';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersComponent } from './components/users/users.component';
+
+import { FooterComponent } from './components/footer/footer.component';
+import { TcComponent } from './components/tc/tc.component';
+import { DeliveryOptionsComponent } from './components/delivery-options/delivery-options.component';
+import { FrequentQuestionsComponent } from './components/frequent-questions/frequent-questions.component';
+
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { StockComponent } from './components/stock/stock.component';
+import { BuyComponent } from './components/buy/buy.component';
+import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
+import { ShoppingBasketService } from './services/shopping-basket.service';
+import { AlertComponent } from './components/alert/alert.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { ChosenCompanyService } from './services/chosen-company.service';
+import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
+import { SearchService } from './services/search.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,10 +52,24 @@ import { UsersComponent } from './components/users/users.component';
     LoginFormComponent2Component,
     AfterLoginComponent,
     NotPageFoundComponent,
-    UserPageComponent,
     LoginUserPageComponent,
     UserDetailsComponent,
     UsersComponent,
+
+    FooterComponent,
+    TcComponent,
+    DeliveryOptionsComponent,
+    FrequentQuestionsComponent,
+    UserProfileComponent,
+    StockComponent,
+    BuyComponent,
+    ShoppingBasketComponent,
+    AlertComponent,
+    OrdersComponent,
+    StockDetailComponent,
+    WishlistComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -47,12 +79,11 @@ import { UsersComponent } from './components/users/users.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireModule 
-    
-
- 
+    AngularFireModule , 
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [LoginServiceService,AuthGuard,CookieService],
+  providers: [LoginServiceService,AuthGuard,CookieService,ShoppingBasketService,ChosenCompanyService,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

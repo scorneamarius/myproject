@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Basic Table</h2>
+    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{productNameDetail}}</td>
+          <td>{{productPriceDetail}}</td>
+          <td>{{quantityDetail}}</td>
+        </tr>
+      </tbody>
+    </table>
+    Update la stoc
+    <input #inputStock>
+    <button (click)=emitEventStock(productNameDetail,inputStock.value)>Update</button><br /> 
+    Update la pret
+    <!-- <input #inputPrice>
+    <button (click)="emitEventPrice(productPriceDetail,inputPrice.value)">Update</button> -->
+  </div>
