@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ShoppingBasketService } from 'src/app/services/shopping-basket.service';
 import { ChosenCompanyService } from '../../services/chosen-company.service';
 import { SearchService } from 'src/app/services/search.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.component.html',
@@ -12,7 +13,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class BuyComponent implements OnInit {
   users: Observable<any[]>;
-  constructor(public db: AngularFireDatabase,public cookieService:CookieService,public shoppingBasket:ShoppingBasketService,public company:ChosenCompanyService, public searchService:SearchService) {
+  constructor(public db: AngularFireDatabase,public router:Router,public cookieService:CookieService,public shoppingBasket:ShoppingBasketService,public company:ChosenCompanyService, public searchService:SearchService) {
     this.users = db.list('users').valueChanges();
   }
   errorMessage="Nu ati introdus date corecte in campul de cumparare sau vanzatorul dvs. nu are destul stoc!";
@@ -48,6 +49,7 @@ export class BuyComponent implements OnInit {
       {
         this.error=false;
         this.shoppingBasket.insertPurchasedItems(info);
+        //this.router.navigate(['userProfile/shoppingBasket']); /*aici */
       }
       else
       {
