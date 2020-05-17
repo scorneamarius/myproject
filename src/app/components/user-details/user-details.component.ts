@@ -168,7 +168,7 @@ export class UserDetailsComponent implements OnInit {
         address:this.address
       }
     );
-    this.router.navigate(['userProfile/shoppingBasket']);
+    // this.router.navigate(['userProfile/shoppingBasket']);
  }
 //  functia check afiseaza toate produsele daca am ales una dintre optiunile de la dropdown button sau doar produsul cu pretul cel mai ieftin
  checkForCompany(){

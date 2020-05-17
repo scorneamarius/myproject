@@ -16,6 +16,7 @@ import { StockComponent } from './components/stock/stock.component';
 import { BuyComponent } from './components/buy/buy.component';
 import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
       {path:'stock',component:StockComponent},
       {path:'buy',component:BuyComponent},
       {path:'orders',component:OrdersComponent},
-      {path:'shoppingBasket',component:ShoppingBasketComponent}
+      {path:'shoppingBasket',component:ShoppingBasketComponent},
+      {path:'wishlist',component:WishlistComponent}
   ]},
   {path:'users',component:UsersComponent},
   {path:'',component: DescriptionFirstPageComponent},

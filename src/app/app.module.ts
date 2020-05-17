@@ -38,8 +38,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ChosenCompanyService } from './services/chosen-company.service';
 import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
 import { SearchService } from './services/search.service';
-import { CompleteTheOrderComponent } from './components/complete-the-order/complete-the-order.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 
@@ -67,7 +67,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
     AlertComponent,
     OrdersComponent,
     StockDetailComponent,
-    CompleteTheOrderComponent,
+    WishlistComponent,
 
 
   ],
